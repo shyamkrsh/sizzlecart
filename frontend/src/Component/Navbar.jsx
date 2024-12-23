@@ -6,7 +6,6 @@ import { FaUserCircle } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import { MdArrowForwardIos } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { MdBorderColor } from "react-icons/md";
@@ -15,8 +14,26 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
 
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import CloseIcon from '@mui/icons-material/Close';
+import Slide from '@mui/material/Slide';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
 
 function Navbar() {
+
 
     const [value, setValue] = useState(0);
     const [products, setProducts] = useState(0);
@@ -28,10 +45,7 @@ function Navbar() {
             setProducts(products.length);
         })
     }, []);
-
-
-    const [open, setOpen] = React.useState(false);
-
+    const [open, setOpen] = React.useState(true);
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
     };
@@ -48,19 +62,32 @@ function Navbar() {
                 </div>
             </div>
             <ul className='pt-5'>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaHome className='text-slate-600'/> Home</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/profilePage"} className='flex items-center gap-4 px-3 '><FaUser className='text-slate-600'/> My Account</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><MdBorderColor className='text-slate-600'/> My Orders</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><BiSolidCoupon className='text-slate-600'/> Coupons</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/cartPage"} className='flex items-center gap-4 px-3 '><FaCartArrowDown className='text-slate-600'/> My Cart</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaHeart className='text-slate-600'/> Wishlist</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaBell className='text-slate-600'/> My Notifications</Link></li>
+                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaHome className='text-slate-600' /> Home</Link></li>
+                <li className='px-3 py-2 text-xl '><Link to={"/profilePage"} className='flex items-center gap-4 px-3 '><FaUser className='text-slate-600' /> My Account</Link></li>
+                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><MdBorderColor className='text-slate-600' /> My Orders</Link></li>
+                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><BiSolidCoupon className='text-slate-600' /> Coupons</Link></li>
+                <li className='px-3 py-2 text-xl '><Link to={"/cartPage"} className='flex items-center gap-4 px-3 '><FaCartArrowDown className='text-slate-600' /> My Cart</Link></li>
+                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaHeart className='text-slate-600' /> Wishlist</Link></li>
+                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaBell className='text-slate-600' /> My Notifications</Link></li>
                 <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '>Help Center</Link></li>
                 <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '>Choose Language</Link></li>
             </ul>
-           
+
         </Box>
     );
+
+
+
+    const [open2, setOpen2] = React.useState(true);
+    const handleClickOpen = () => {
+        setOpen2(true);
+    };
+
+    const handleClose = () => {
+        setOpen2(false);
+    };
+
+   
 
     return (
         <div className='w-[100%] sticky top-0'>
@@ -94,9 +121,38 @@ function Navbar() {
 
                             <li className=''>
                                 <Link to={"/login"}>
-                                    <FaUserCircle className='text-2xl' />
+                                    <FaUserCircle className='text-2xl' onClick={handleClickOpen} />
                                 </Link>
                             </li>
+                            <React.Fragment>
+                                <Dialog
+                                    fullScreen
+                                    open={open2}
+                                    onClose={handleClose}
+                                    TransitionComponent={Transition}
+                                >
+                                    <AppBar sx={{ position: 'relative', backgroundColor: '#40372d' }}>
+                                        <Toolbar>
+                                            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+                                                <h1 className='font-sans text-2xl font-bold shadow-md' style={{ background: 'linear-gradient(to bottom, yellow 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
+                                            </Typography>
+                                            <IconButton
+                                                edge="start"
+                                                color="inherit"
+                                                onClick={handleClose}
+                                                aria-label="close"
+                                            >
+                                                <CloseIcon />
+                                            </IconButton>
+                                        </Toolbar>
+                                    </AppBar>
+                                    <List>
+                                       <input type="text" placeholder='Enter mobile number' />
+                                        <Divider />
+                                        
+                                    </List>
+                                </Dialog>
+                            </React.Fragment>
                         </div>
                     </ul>
                 </div>

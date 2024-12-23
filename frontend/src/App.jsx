@@ -10,6 +10,7 @@ import ProfilePage from './Component/Profile/ProfilePage'
 
 
 
+
 function App() {
 
   return (
@@ -20,7 +21,6 @@ function App() {
           <Route path='/' element={<HomePage />}></Route>
           <Route path='/cartPage' element={<CartPage />}></Route>
           <Route path='/profilePage' element={<ProfilePage/>}></Route>
-
         </Routes>
         <Footer/>
       </BrowserRouter>
