@@ -71,7 +71,7 @@ function Navbar() {
                         {DrawerList}
                     </Drawer>
                 </div>
-                <div>
+                <div onClick={() => navigate("/")} className='cursor-pointer'>
                     <h1 className='font-sans text-2xl font-bold shadow-md' style={{ background: 'linear-gradient(to bottom, yellow 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
                 </div>
                 <div>

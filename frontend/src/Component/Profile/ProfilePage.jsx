@@ -29,8 +29,12 @@ function ProfilePage() {
                 <button className='border px-4 py-2 font-semibold rounded-md'>Change Password</button>
                 <button className='border px-4 py-2 font-semibold rounded-md'>Delete Account</button>
             </div>
-            <div className='mt-[10rem]'>
+            <div className='flex items-center justify-center gap-3 mt-8'>
+                <button className='border px-4 py-2 font-semibold rounded-md'>Logout</button>
             </div>
+           <div className='mt-10'>
+
+           </div>
         </div>
     )
 }
