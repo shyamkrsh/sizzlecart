@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Badge from '@mui/material/Badge';
 import { FaShoppingCart } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
@@ -20,6 +20,7 @@ function Navbar() {
 
     const [value, setValue] = useState(0);
     const [products, setProducts] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setInterval(() => {
@@ -37,7 +38,7 @@ function Navbar() {
 
     const DrawerList = (
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-            <div onClick={() => location.href = "/login"} className='flex justify-center gap-2 items-center p-2' style={{ backgroundColor: '#40372d' }}>
+            <div onClick={() => navigate("/profilePage")} className='flex justify-center gap-2 items-center p-2' style={{ backgroundColor: '#40372d' }}>
                 <div>
                     <img src="src/assets/img1.jpg" alt="" className='w-[3rem] h-[3rem] rounded-full border border-red-800' />
                 </div>
@@ -48,7 +49,7 @@ function Navbar() {
             </div>
             <ul className='pt-5'>
                 <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaHome className='text-slate-600'/> Home</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaUser className='text-slate-600'/> My Account</Link></li>
+                <li className='px-3 py-2 text-xl '><Link to={"/profilePage"} className='flex items-center gap-4 px-3 '><FaUser className='text-slate-600'/> My Account</Link></li>
                 <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><MdBorderColor className='text-slate-600'/> My Orders</Link></li>
                 <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><BiSolidCoupon className='text-slate-600'/> Coupons</Link></li>
                 <li className='px-3 py-2 text-xl '><Link to={"/cartPage"} className='flex items-center gap-4 px-3 '><FaCartArrowDown className='text-slate-600'/> My Cart</Link></li>

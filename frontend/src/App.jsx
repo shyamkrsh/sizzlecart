@@ -4,6 +4,7 @@ import HomePage from './Component/Home/HomePage'
 import Footer from './Component/Footer'
 import Navbar from './Component/Navbar'
 import CartPage from './Component/Cart/CartPage'
+import ProfilePage from './Component/Profile/ProfilePage'
 
 
 
@@ -18,7 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />}></Route>
           <Route path='/cartPage' element={<CartPage />}></Route>
-
+          <Route path='/profilePage' element={<ProfilePage/>}></Route>
 
         </Routes>
         <Footer/>
