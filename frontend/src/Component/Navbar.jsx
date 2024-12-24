@@ -45,7 +45,7 @@ function Navbar() {
             setProducts(products.length);
         })
     }, []);
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
     };
@@ -78,7 +78,7 @@ function Navbar() {
 
 
 
-    const [open2, setOpen2] = React.useState(true);
+    const [open2, setOpen2] = React.useState(false);
     const handleClickOpen = () => {
         setOpen2(true);
     };
