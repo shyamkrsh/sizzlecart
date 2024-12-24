@@ -13,7 +13,7 @@ import { BiSolidCoupon } from "react-icons/bi";
 import { FaCartArrowDown } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
-import TextField from '@mui/material/TextField';
+import { TextField, InputAdornment } from '@mui/material';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import ListItemText from '@mui/material/ListItemText';
@@ -26,6 +26,13 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import OtpInput from './Auth/OtpInput';
+import { MdEmail } from "react-icons/md";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -33,6 +40,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 
 function Navbar() {
+    const [age, setAge] = React.useState('');
+
+    const handleChange = (event) => {
+        setAge(event.target.value);
+    };
 
 
     const [value, setValue] = useState(0);
@@ -54,7 +66,7 @@ function Navbar() {
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
             <div onClick={() => navigate("/profilePage")} className='flex justify-center gap-2 items-center p-2' style={{ backgroundColor: '#40372d' }}>
                 <div>
-                    <img src="src/assets/img1.jpg" alt="" className='w-[3rem] h-[3rem] rounded-full border border-red-800' />
+                    <img src="src/assets/profile.jpeg" alt="" className='w-[3rem] h-[3rem] rounded-full border border-red-800' />
                 </div>
                 <div>
                     <h2 className='font-semibold text-white'>Shyam Kumar Sharma</h2>
@@ -99,7 +111,7 @@ function Navbar() {
                     </Drawer>
                 </div>
                 <div onClick={() => navigate("/")} className='cursor-pointer'>
-                    <h1 className='font-sans text-2xl font-bold shadow-md' style={{ background: 'linear-gradient(to bottom, yellow 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
+                    <h1 className='font-sans text-2xl font-bold ' style={{ background: 'linear-gradient(to bottom, yellow 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
                 </div>
                 <div>
                     <ul className='flex gap-8'>
@@ -132,7 +144,7 @@ function Navbar() {
                                     <AppBar sx={{ position: 'relative', backgroundColor: '#40372d' }}>
                                         <Toolbar>
                                             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                                                <h1 className='font-sans text-2xl font-bold shadow-md' style={{ background: 'linear-gradient(to bottom, yellow 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
+                                                <h1 className='font-sans text-2xl font-bold' style={{ background: 'linear-gradient(to bottom, yellow 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
                                             </Typography>
                                             <IconButton
                                                 edge="start"
@@ -148,12 +160,28 @@ function Navbar() {
                                         <h3 className='text-xl font-semibold'>Login for the best experience</h3>
                                         <p className='text-slate-500'>Enter your phone number to continue</p>
                                     </div>
-                                    <List className='flex items-center justify-center'>
-                                        <TextField id="outlined-basic" label="Phone Number" variant="outlined" />
-                                    </List>
+                                    <div className='text-center mt-10'>
+                                        <TextField
+                                            id="outlined-basic"
+                                            label="Email Id"
+                                            variant="outlined"
+                                            InputProps={{
+                                                startAdornment: (
+                                                    <InputAdornment position="start">
+                                                        <MdEmail className='text-2xl'/>
+                                                    </InputAdornment>
+                                                ),
+                                            }}
+                                        />
+                                        <br /><br />
+                                        <div className='justify-center items-center hidden'>
+                                            <OtpInput />
+                                        </div>
+                                    </div>
 
-                                    <div className='mt-[25rem]'>
-                                        <button className='text-white bg-amber-600 w-full py-3 text-xl hover:bg-amber-700'>Continue</button>
+
+                                    <div className='mt-[10rem] text-center'>
+                                        <button className='text-white bg-amber-600 w-[10rem] py-3 text-xl hover:bg-amber-700'>Continue</button>
                                     </div>
                                 </Dialog>
                             </React.Fragment>
