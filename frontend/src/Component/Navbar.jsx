@@ -13,7 +13,7 @@ import { BiSolidCoupon } from "react-icons/bi";
 import { FaCartArrowDown } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
-
+import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import ListItemText from '@mui/material/ListItemText';
@@ -87,7 +87,7 @@ function Navbar() {
         setOpen2(false);
     };
 
-   
+
 
     return (
         <div className='w-[100%] sticky top-0'>
@@ -120,9 +120,7 @@ function Navbar() {
                                 </Link></li>
 
                             <li className=''>
-                                <Link to={"/login"}>
-                                    <FaUserCircle className='text-2xl' onClick={handleClickOpen} />
-                                </Link>
+                                <FaUserCircle className='text-2xl' onClick={handleClickOpen} />
                             </li>
                             <React.Fragment>
                                 <Dialog
@@ -146,11 +144,17 @@ function Navbar() {
                                             </IconButton>
                                         </Toolbar>
                                     </AppBar>
-                                    <List>
-                                       <input type="text" placeholder='Enter mobile number' />
-                                        <Divider />
-                                        
+                                    <div className='p-5'>
+                                        <h3 className='text-xl font-semibold'>Login for the best experience</h3>
+                                        <p className='text-slate-500'>Enter your phone number to continue</p>
+                                    </div>
+                                    <List className='flex items-center justify-center'>
+                                        <TextField id="outlined-basic" label="Phone Number" variant="outlined" />
                                     </List>
+
+                                    <div className='mt-[25rem]'>
+                                        <button className='text-white bg-amber-600 w-full py-3 text-xl hover:bg-amber-700'>Continue</button>
+                                    </div>
                                 </Dialog>
                             </React.Fragment>
                         </div>
