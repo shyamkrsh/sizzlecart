@@ -4,7 +4,7 @@ function GetDeal() {
     return (
         <div className='bg-slate-100 relative'>
             <div className='h-[30rem] w-[100%]'>
-                <img src="src/assets/midbg.jpg" alt="" className='h-[100%] w-[100%]' />
+                <img src="https://i.ibb.co/0cZwRgh/midbg.jpg" alt="" className='h-[100%] w-[100%]' />
             </div>
             <div className='h-[30rem] w-[100%] bg-black opacity-60 absolute top-0 flex items-center justify-center'>
             </div>

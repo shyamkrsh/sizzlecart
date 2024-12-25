@@ -9,7 +9,7 @@ function Blogs() {
             <div className="card-container md:px-[10%] mt-12 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-content-center">
                 <div className='card w-[20rem] h-[30rem] border p-2  shadow-sm bg-white rounded-sm'>
                     <div className='w-100 h-[60%]'>
-                        <img src="src/assets/img1.jpg" alt="" className='w-[100%] h-[100%]' />
+                        <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[100%] h-[100%]' />
                     </div>
                     <div className='content px-5'>
                         <h2 className='mt-3 text-xl font-semibold'>Benefits of Turmeric</h2>
@@ -19,7 +19,7 @@ function Blogs() {
                 </div>
                 <div className='card w-[20rem] h-[30rem] border p-2  shadow-sm bg-white rounded-sm'>
                     <div className='w-100 h-[60%]'>
-                        <img src="src/assets/img1.jpg" alt="" className='w-[100%] h-[100%]' />
+                        <img src="https://i.ibb.co/vzGRT5b/img2.jpg" alt="" className='w-[100%] h-[100%]' />
                     </div>
                     <div className='content px-5'>
                         <h2 className='mt-3 text-xl font-semibold'>Benefits of Turmeric</h2>
@@ -29,7 +29,7 @@ function Blogs() {
                 </div>
                 <div className='card w-[20rem] h-[30rem] border p-2  shadow-sm bg-white rounded-sm'>
                     <div className='w-100 h-[60%]'>
-                        <img src="src/assets/img1.jpg" alt="" className='w-[100%] h-[100%]' />
+                        <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[100%] h-[100%]' />
                     </div>
                     <div className='content px-5'>
                         <h2 className='mt-3 text-xl font-semibold'>Benefits of Turmeric</h2>

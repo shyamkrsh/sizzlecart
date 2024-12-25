@@ -32,6 +32,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import OtpInput from './Auth/OtpInput';
 import { MdEmail } from "react-icons/md";
+import axios from 'axios';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -41,11 +42,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 function Navbar() {
     const [age, setAge] = React.useState('');
-
     const handleChange = (event) => {
         setAge(event.target.value);
     };
-
 
     const [value, setValue] = useState(0);
     const [products, setProducts] = useState(0);
@@ -66,7 +65,7 @@ function Navbar() {
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
             <div onClick={() => navigate("/profilePage")} className='flex justify-center gap-2 items-center p-2' style={{ backgroundColor: '#40372d' }}>
                 <div>
-                    <img src="src/assets/profile.jpeg" alt="" className='w-[3rem] h-[3rem] rounded-full border border-red-800' />
+                    <img src="https://i.ibb.co/9hL97vT/profile.jpg" alt="" className='w-[3rem] h-[3rem] rounded-full border border-red-800' />
                 </div>
                 <div>
                     <h2 className='font-semibold text-white'>Shyam Kumar Sharma</h2>
@@ -89,18 +88,24 @@ function Navbar() {
         </Box>
     );
 
-
-
     const [open2, setOpen2] = React.useState(false);
     const handleClickOpen = () => {
         setOpen2(true);
     };
-
     const handleClose = () => {
         setOpen2(false);
     };
 
+    const [mail, setMail] = useState('');
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        axios.post("/", {
+            
+        })
+        console.log(mail);
+    }
 
     return (
         <div className='w-[100%] sticky top-0'>
@@ -161,29 +166,32 @@ function Navbar() {
                                         <h3 className='text-xl font-semibold'>Login for the best experience</h3>
                                         <p className='text-slate-500'>Enter your phone number to continue</p>
                                     </div>
-                                    <div className='text-center mt-10'>
-                                        <TextField
-                                            id="outlined-basic"
-                                            label="Email Id"
-                                            variant="outlined"
-                                            InputProps={{
-                                                startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <MdEmail className='text-2xl'/>
-                                                    </InputAdornment>
-                                                ),
-                                            }}
-                                        />
-                                        <br /><br />
-                                        <div className='justify-center items-center hidden'>
-                                            <OtpInput />
+                                    <form onSubmit={handleSubmit}>
+                                        <div className='text-center mt-10'>
+                                            <TextField
+                                                id="outlined-basic"
+                                                label="Email Id"
+                                                variant="outlined"
+                                                value={mail}
+                                                onChange={(e) => setMail(e.target.value)}
+                                                InputProps={{
+                                                    startAdornment: (
+                                                        <InputAdornment position="start">
+                                                            <MdEmail className='text-2xl' />
+                                                        </InputAdornment>
+                                                    ),
+                                                }}
+                                            />
+                                            <br /><br />
+                                            <div className='justify-center items-center hidden'>
+                                                <OtpInput />
+                                            </div>
                                         </div>
-                                    </div>
 
-
-                                    <div className='mt-[10rem] text-center'>
-                                        <button className='text-white bg-amber-600 w-[10rem] py-3 text-xl hover:bg-amber-700'>Continue</button>
-                                    </div>
+                                        <div className='mt-[10rem] text-center'>
+                                            <button className='text-white bg-amber-600 w-[10rem] py-3 text-xl hover:bg-amber-700'>Continue</button>
+                                        </div>
+                                    </form>
                                 </Dialog>
                             </React.Fragment>
                         </div>
