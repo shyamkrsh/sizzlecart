@@ -34,6 +34,7 @@ import OtpInput from './Auth/OtpInput';
 import { MdEmail } from "react-icons/md";
 import axios from 'axios';
 import { IoSearch } from "react-icons/io5";
+import { FaLocationDot } from "react-icons/fa6";
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -116,7 +117,7 @@ function Navbar() {
                         {DrawerList}
                     </Drawer>
                 </div>
-                <div onClick={() => navigate("/")} className='cursor-pointer '  style={{ backgroundColor: '#40372d' }}>
+                <div onClick={() => navigate("/")} className='cursor-pointer ' style={{ backgroundColor: '#40372d' }}>
                     <h1 className='font-sans text-2xl font-bold ' style={{ background: 'linear-gradient(to bottom, yellow 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
                 </div>
 
@@ -133,6 +134,10 @@ function Navbar() {
                 <div>
                     <ul className='flex gap-8'>
                         <div className='gap-8 hidden lg:flex'>
+                            <li className={'text-white'} ><div className='flex items-center justify-center gap-2  text-white'>
+                                <FaLocationDot />
+                                <p>Balupur, Patna</p>
+                            </div></li>
                             <li className={'text-white'} ><Link to={"/offers"}>Offers</Link></li>
                         </div>
                         <div className='flex gap-8'>
