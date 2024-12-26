@@ -8,11 +8,13 @@ import Blogs from './Blogs'
 function HomePage() {
   return (
     <>
-      <Intro/>
-      <TrendingProducts/>
-      <BestProducts />
-      <GetDeal/>
-      <Blogs/>
+      <div className='bg-slate-100'>
+        <Intro />
+        <TrendingProducts />
+        <BestProducts />
+        <GetDeal />
+        <Blogs />
+      </div>
     </>
   )
 }

@@ -1,51 +1,26 @@
 import React from 'react'
-import Typewriter from 'typewriter-effect'
+import { IoSearch } from "react-icons/io5";
+import SelectCategory from './SelectCategory';
 
 function Intro() {
 
-    
+
 
 
     return (
-        <div className='relative w-[100%]'>
-            <div className='relative w-[100%]'>
-                <img src="https://i.ibb.co/8sJMHmb/introbg.jpg" alt="" className='w-[100%] h-[20rem] md:h-[38rem]' />
-            </div>
-            <div className='absolute top-24 left-12'>
-                <div>
-
-                    <h1 className='text-white text-2xl md:text-4xl font-bold'>
-                        <Typewriter
-                            options={{
-                                loop: true,
-                            }}
-                            onInit={(typewriter) => {
-                                typewriter
-                                    .typeString("Fast Spice Delivery")
-                                    .pauseFor(1000)
-                                    .deleteAll()
-                                    .typeString("Delivery at low price")
-                                    .pauseFor(1000)
-                                    .deleteAll()
-                                    .typeString("Easy Order Process")
-                                    .pauseFor(1000)
-                                    .deleteAll()
-                                    .typeString("Best Quality Delivery")
-                                    .pauseFor(1000)
-                                    .deleteAll()
-                                    .start()
-
-                            }}
+        <div className='relative w-[100%] bg-slate-200 border'>
+            <div className=''>
+                <div className='mt-5 md:hidden w-[90%] mx-auto'>
+                    <div className='w-[100%] h-[2.5rem] flex items-center justify-center bg-white rounded-md ps-2'>
+                        <IoSearch className='text-2xl text-slate-700' />
+                        <input type="text"
+                            placeholder='search products, spices'
+                            className='w-[100%] h-[2.5rem] px-2 rounded-md outline-none text-slate-600 font-semibold'
                         />
-                    </h1>
-                    <p className='ps-5 text-white'>Very fast and efficient delivery process.</p>
+                    </div>
                 </div>
-
-                <div className='mt-5 '>
-                    <form action="" className='flex gap-5'>
-                        <input type="text" placeholder='Search Something here' className='p-2 rounded-full w-[10rem] md:w-[20rem] outline-none' />
-                        <button className='btn bg-red-500 text-white px-4 py-2 rounded-full'>Search</button>
-                    </form>
+                <div className='mt-2 hidden md:block'>
+                    <SelectCategory/>
                 </div>
             </div>
         </div>

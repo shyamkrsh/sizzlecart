@@ -33,6 +33,7 @@ import Select from '@mui/material/Select';
 import OtpInput from './Auth/OtpInput';
 import { MdEmail } from "react-icons/md";
 import axios from 'axios';
+import { IoSearch } from "react-icons/io5";
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -46,7 +47,6 @@ function Navbar() {
         setAge(event.target.value);
     };
 
-    const [value, setValue] = useState(0);
     const [products, setProducts] = useState(0);
     const navigate = useNavigate();
 
@@ -102,13 +102,13 @@ function Navbar() {
         e.preventDefault();
 
         axios.post("/", {
-            
+
         })
         console.log(mail);
     }
 
     return (
-        <div className='w-[100%] sticky top-0'>
+        <div className='w-[100%] sticky top-0 z-50'>
             <nav className='z-50 flex w-[100%] h-16 justify-between items-center px-5 text-white' style={{ backgroundColor: '#40372d' }} >
                 <div className='md:hidden'>
                     <IoIosMenu onClick={toggleDrawer(true)} className='text-3xl' />
@@ -116,18 +116,24 @@ function Navbar() {
                         {DrawerList}
                     </Drawer>
                 </div>
-                <div onClick={() => navigate("/")} className='cursor-pointer'>
+                <div onClick={() => navigate("/")} className='cursor-pointer '  style={{ backgroundColor: '#40372d' }}>
                     <h1 className='font-sans text-2xl font-bold ' style={{ background: 'linear-gradient(to bottom, yellow 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
                 </div>
+
+                <div className='w-[40%] hidden md:block'>
+                    <div className='w-[100%] h-[2.5rem] flex items-center justify-center bg-slate-50 rounded-md ps-2'>
+                        <IoSearch className='text-2xl text-slate-700' />
+                        <input type="text"
+                            placeholder='search products, spices'
+                            className='w-[100%] h-[2.5rem] px-2 flex items-center justify-start rounded-md outline-none text-slate-600 font-semibold bg-slate-50'
+                        />
+                    </div>
+                </div>
+
                 <div>
                     <ul className='flex gap-8'>
                         <div className='gap-8 hidden lg:flex'>
-                            <li className={value == 0 ? 'text-yellow-500' : ''} onClick={() => setValue(0)}><Link to={"/"}>Home</Link></li>
-                            <li className={value == 1 ? 'text-yellow-500' : ''} onClick={() => setValue(1)}><Link to={"/shop"}>Shop</Link></li>
-                            <li className={value == 2 ? 'text-yellow-500' : ''} onClick={() => setValue(2)}><Link to={"/offers"}>Offers</Link></li>
-                            <li className={value == 3 ? 'text-yellow-500' : ''} onClick={() => setValue(3)}><Link to={"/recipes"}>Recipes </Link></li>
-                            <li className={value == 4 ? 'text-yellow-500' : ''} onClick={() => setValue(4)}><Link to={"/about"}>About Us</Link></li>
-                            <li className={value == 5 ? 'text-yellow-500' : ''} onClick={() => setValue(5)}><Link to={"/contact"}>Contact Us</Link></li>
+                            <li className={'text-white'} ><Link to={"/offers"}>Offers</Link></li>
                         </div>
                         <div className='flex gap-8'>
                             <li className=''>
@@ -136,7 +142,6 @@ function Navbar() {
                                         <FaShoppingCart className='text-2xl' />
                                     </Badge>
                                 </Link></li>
-
                             <li className=''>
                                 <FaUserCircle className='text-2xl' onClick={handleClickOpen} />
                             </li>
