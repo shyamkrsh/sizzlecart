@@ -32,7 +32,7 @@ function Intro() {
                 </div>
 
             </div>
-            <div className='w-[100%] flex items-center justify-center absolute top-[-20rem]'>
+            <div className='w-[100%] flex items-center justify-center absolute top-[23rem]'>
                 <SelectCategory />
             </div>
         </>
