@@ -46,7 +46,6 @@ function Navbar() {
     const [products, setProducts] = useState(0);
     const navigate = useNavigate();
 
-    const [coordinates, setCoordinates] = useState({ latitude: '', longitude: '' });
     const [address, setAddress] = useState('');
 
     useEffect(() => {
@@ -117,7 +116,6 @@ function Navbar() {
                 (position) => {
                     const latitude = position?.coords?.latitude;
                     const longitude = position?.coords?.longitude;
-                    console.log({ latitude, longitude });
                     axios.get(`http://api.positionstack.com/v1/reverse?access_key=b450251c2d1c4fbe06d326abaffa295d&query=${latitude},${longitude}`).then((res) => {
                         setAddress(res.data.data[0].name);
                         
