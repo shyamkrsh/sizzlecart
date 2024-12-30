@@ -116,10 +116,10 @@ function Navbar() {
                 (position) => {
                     const latitude = position?.coords?.latitude;
                     const longitude = position?.coords?.longitude;
-                    axios.get(`http://api.positionstack.com/v1/reverse?access_key=b450251c2d1c4fbe06d326abaffa295d&query=${latitude},${longitude}`).then((res) => {
-                        setAddress(res.data.data[0].name);
+                    // axios.get(`http://api.positionstack.com/v1/reverse?access_key=b450251c2d1c4fbe06d326abaffa295d&query=${latitude},${longitude}`).then((res) => {
+                    //     setAddress(res.data.data[0].name);
                         
-                    })
+                    // })
                 },
                 (error) => {
                     console.error('Error getting location:', error.message);
