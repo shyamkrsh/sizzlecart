@@ -3,6 +3,10 @@ const express = require('express');
 const mongoose = require("mongoose");
 const app =express();
 const PORT = 8080 || process.env.PORT;
+const cors = require('cors');
+
+const userRouter = require('./routes/userRouter');
+
 
 main().then((res) => {
     console.log("Connected to DB");
@@ -14,10 +18,12 @@ async function main() {
     await mongoose.connect("mongodb://localhost:27017/sizzlecart")
 }
 
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-app.get("/demo", (req, res) => {
-    res.send("This is Demo just wait ! ");
-})
+
+app.use("/api/user", userRouter);
 
 
 

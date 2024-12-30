@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, TextField } from "@mui/material";
+import axios from "axios";
 
 const OtpInput = ({ length = 6 }) => {
   const [otp, setOtp] = useState(new Array(length).fill(""));
@@ -25,24 +26,43 @@ const OtpInput = ({ length = 6 }) => {
     }
   };
 
+  // Handle form submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const otpValue = otp.join("");
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/user/login`, { otp: otpValue }).then((res) => {
+      console.log(res.data);
+    })
+
+    alert(`Entered OTP is ${otpValue}`);
+    console.log(otpValue);
+  };
   // Render the OTP fields
   return (
-    <Box display="flex" gap={1} width={"30rem"} >
-      {otp.map((digit, index) => (
-        <TextField
-          key={index}
-          id={`otp-${index}`}
-          value={digit}
-          onChange={(e) => handleChange(e, index)}
-          onKeyDown={(e) => handleKeyDown(e, index)}
-          inputProps={{
-            maxLength: 1,
-            style: { textAlign: "center"},
-          }}
-          variant="outlined"
-        />
-      ))}
-    </Box>
+    <form onSubmit={handleSubmit}>
+      <div className="flex  flex-col items-center justify-center">
+        <Box display="flex" gap={1} width={"30rem"} >
+          {otp.map((digit, index) => (
+            <TextField
+              key={index}
+              id={`otp-${index}`}
+              value={digit}
+              onChange={(e) => handleChange(e, index)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
+              inputProps={{
+                maxLength: 1,
+                style: { textAlign: "center" },
+              }}
+              variant="outlined"
+            />
+          ))}
+        </Box>
+
+        <div className='mt-[10rem] text-center'>
+          <button className='text-white bg-amber-600 w-[10rem] py-3 text-xl hover:bg-amber-700' type="submit">Continue</button>
+        </div>
+      </div>
+    </form>
   );
 };
 

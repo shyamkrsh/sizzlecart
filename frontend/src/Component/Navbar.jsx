@@ -43,11 +43,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 
 function Navbar() {
-    const [age, setAge] = React.useState('');
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
-
     const [products, setProducts] = useState(0);
     const navigate = useNavigate();
 
@@ -98,15 +93,44 @@ function Navbar() {
     };
 
     const [mail, setMail] = useState('');
+    const [showOtp, setShowOtp] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        axios.post("/", {
-
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/user/verifyOtp`, { email: mail }).then((res) => {
+            console.log(res);
+            setShowOtp(true);
+        }).catch((err) => {
+            console.log(err);
         })
-        console.log(mail);
     }
+
+    const [coordinates, setCoordinates] = useState({ latitude: '', longitude: '' });
+    const [address, setAddress] = useState('');
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                setCoordinates({ latitude, longitude });
+            },
+            (error) => {
+                console.error('Error getting location:', error.message);
+            }
+        );
+    } else {
+        console.error('Geolocation is not supported by this browser.');
+    }
+
+  
+        axios.get(`https://nominatim.openstreetmap.org/reverse?lat=${coordinates.latitude}&lon=${coordinates.longitude}&format=json`).then((res) => {
+            setAddress(res.data.display_name);
+        }).catch((err) => {
+            console.log(err);
+        })
+  
+
 
     return (
         <div className='w-[100%] sticky top-0 z-50'>
@@ -130,13 +154,12 @@ function Navbar() {
                         />
                     </div>
                 </div>
-
                 <div>
                     <ul className='flex gap-8'>
                         <div className='gap-8 hidden lg:flex'>
                             <li className={'text-white'} ><div className='flex items-center justify-center gap-2  text-white'>
                                 <FaLocationDot />
-                                <p>Balupur, Patna</p>
+                                <p>{address}</p>
                             </div></li>
                             <li className={'text-white'} ><Link to={"/offers"}>Offers</Link></li>
                         </div>
@@ -178,30 +201,32 @@ function Navbar() {
                                     </div>
                                     <form onSubmit={handleSubmit}>
                                         <div className='text-center mt-10'>
-                                            <TextField
-                                                id="outlined-basic"
-                                                label="Email Id"
-                                                variant="outlined"
-                                                value={mail}
-                                                onChange={(e) => setMail(e.target.value)}
-                                                InputProps={{
-                                                    startAdornment: (
-                                                        <InputAdornment position="start">
-                                                            <MdEmail className='text-2xl' />
-                                                        </InputAdornment>
-                                                    ),
-                                                }}
-                                            />
-                                            <br /><br />
-                                            <div className='justify-center items-center hidden'>
-                                                <OtpInput />
+                                            <div className={showOtp ? 'hidden' : 'block'}>
+                                                <TextField
+                                                    id="outlined-basic"
+                                                    label="Email Id"
+                                                    variant="outlined"
+                                                    value={mail}
+                                                    onChange={(e) => setMail(e.target.value)}
+                                                    InputProps={{
+                                                        startAdornment: (
+                                                            <InputAdornment position="start">
+                                                                <MdEmail className='text-2xl' />
+                                                            </InputAdornment>
+                                                        ),
+                                                    }}
+                                                />
                                             </div>
+                                            <br /><br />
                                         </div>
 
-                                        <div className='mt-[10rem] text-center'>
-                                            <button className='text-white bg-amber-600 w-[10rem] py-3 text-xl hover:bg-amber-700'>Continue</button>
+                                        <div className={showOtp ? 'hidden' : 'block mt-[10rem] text-center'}>
+                                            <button className='text-white bg-amber-600 w-[10rem] py-3 text-xl hover:bg-amber-700' type='submit'>Continue</button>
                                         </div>
                                     </form>
+                                    <div className={showOtp ? 'justify-center items-center' : 'hidden'}>
+                                        <OtpInput />
+                                    </div>
                                 </Dialog>
                             </React.Fragment>
                         </div>
