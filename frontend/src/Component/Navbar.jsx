@@ -46,6 +46,9 @@ function Navbar() {
     const [products, setProducts] = useState(0);
     const navigate = useNavigate();
 
+    const [coordinates, setCoordinates] = useState({ latitude: '', longitude: '' });
+    const [address, setAddress] = useState('');
+
     useEffect(() => {
         setInterval(() => {
             const products = JSON.parse(localStorage.getItem('products'));
@@ -65,7 +68,7 @@ function Navbar() {
                 </div>
                 <div>
                     <h2 className='font-semibold text-white'>Shyam Kumar Sharma</h2>
-                    <p className=' text-white'>Patna, Bihar</p>
+                    <p className=' text-white'>{address}</p>
                 </div>
             </div>
             <ul className='pt-5'>
@@ -105,31 +108,30 @@ function Navbar() {
         })
     }
 
-    const [coordinates, setCoordinates] = useState({ latitude: '', longitude: '' });
-    const [address, setAddress] = useState('');
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                setCoordinates({ latitude, longitude });
-            },
-            (error) => {
-                console.error('Error getting location:', error.message);
-            }
-        );
-    } else {
-        console.error('Geolocation is not supported by this browser.');
-    }
 
-  
-        axios.get(`https://nominatim.openstreetmap.org/reverse?lat=${coordinates.latitude}&lon=${coordinates.longitude}&format=json`).then((res) => {
-            setAddress(res.data.display_name);
-        }).catch((err) => {
-            console.log(err);
-        })
-  
+
+    useEffect(() => {
+        if (navigator?.geolocation) {
+            navigator?.geolocation?.getCurrentPosition(
+                (position) => {
+                    const latitude = position?.coords?.latitude;
+                    const longitude = position?.coords?.longitude;
+                    console.log({ latitude, longitude });
+                    axios.get(`http://api.positionstack.com/v1/reverse?access_key=b450251c2d1c4fbe06d326abaffa295d&query=${latitude},${longitude}`).then((res) => {
+                        setAddress(res.data.data[0].name);
+                        
+                    })
+                },
+                (error) => {
+                    console.error('Error getting location:', error.message);
+                }
+            );
+        } else {
+            console.error('Geolocation is not supported by this browser.');
+        }
+    }, [])
+
 
 
     return (
