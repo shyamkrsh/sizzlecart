@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, TextField } from "@mui/material";
 import axios from "axios";
 
-const OtpInput = ({ length = 6 }) => {
+const OtpInput = ({ length = 6, email }) => {
   const [otp, setOtp] = useState(new Array(length).fill(""));
 
   // Handle input change
@@ -30,12 +30,9 @@ const OtpInput = ({ length = 6 }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const otpValue = otp.join("");
-    axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/user/login`, { otp: otpValue }).then((res) => {
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/user/login`, {email: email, otp: otpValue }).then((res) => {
       console.log(res.data);
     })
-
-    alert(`Entered OTP is ${otpValue}`);
-    console.log(otpValue);
   };
   // Render the OTP fields
   return (

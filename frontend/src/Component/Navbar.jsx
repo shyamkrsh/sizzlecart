@@ -225,7 +225,7 @@ function Navbar() {
                                         </div>
                                     </form>
                                     <div className={showOtp ? 'justify-center items-center' : 'hidden'}>
-                                        <OtpInput />
+                                        <OtpInput email={mail} />
                                     </div>
                                 </Dialog>
                             </React.Fragment>

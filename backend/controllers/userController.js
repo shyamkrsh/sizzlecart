@@ -6,8 +6,6 @@ module.exports.verifyOtp = async (req, res) => {
     const {email} = req.body;
     const otp = otpGenerator.generate(6, {upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false});
     sendMail(email, otp).then(async(response) => {
-        const user = await User({email, otp});
-        await user.save();
         res.status(200).json({
             message: "OTP sent successfully",
             data: [],
@@ -15,6 +13,7 @@ module.exports.verifyOtp = async (req, res) => {
             error: false,
         });
     }).catch((err) => {
+        console.log(err);
         res.status(500).json({
             message: "Internal server error",
             data: [],
@@ -26,5 +25,6 @@ module.exports.verifyOtp = async (req, res) => {
 
 module.exports.login = async (req, res) => {
     const {email, otp} = req.body;
-    const user = await User
+    console.log(email, otp);
+   
 }
