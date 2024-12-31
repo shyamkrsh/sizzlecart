@@ -53,7 +53,6 @@ module.exports.login = async (req, res) => {
         console.log(email, otp);
         const user = await User.findOne({ email: email });
         const isOtpValid = await bcrypt.compareSync(otp, user.otp);
-        console.log("working 1")
         if (isOtpValid == false) {
             res.json({
                 message: "Invalid OTP",
@@ -67,23 +66,25 @@ module.exports.login = async (req, res) => {
             _id: user._id,
             email: user.email,
         };
-        const token = jwt.sign(tokenData, "mysecretStringyoucantchanged", {
-            expiresIn: 7 * 24 * 60 * 60 * 1000, // 7 days
+        const token = jwt.sign(tokenData, "mysecretstring", {
+            expiresIn: '7d'
         });
 
 
         const tokenOptions = {
             httpOnly: true,
-            secure: true,
-            sameSite: "None"
+            // secure: true,
+            // sameSite: "None"
         };
 
-        res.cookie("token", token, tokenOptions).status(200).json({
+        res.cookie("token", token, tokenOptions);
+        res.status(200).json({
             message: "Login successful",
             data: user,
             success: true,
             error: false,
         });
+
     } catch (err) {
         res.json({
             message: "Internal server error",

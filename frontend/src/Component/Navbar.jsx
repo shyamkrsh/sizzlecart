@@ -35,6 +35,7 @@ import { MdEmail } from "react-icons/md";
 import axios from 'axios';
 import { IoSearch } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
+import { useSelector } from 'react-redux';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -59,6 +60,8 @@ function Navbar() {
         setOpen(newOpen);
     };
 
+    const user = useSelector((state) => state.user.user);
+
     const DrawerList = (
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
             <div onClick={() => navigate("/profilePage")} className='flex justify-center gap-2 items-center p-2' style={{ backgroundColor: '#40372d' }}>
@@ -66,7 +69,7 @@ function Navbar() {
                     <img src="https://i.ibb.co/9hL97vT/profile.jpg" alt="" className='w-[3rem] h-[3rem] rounded-full border border-red-800' />
                 </div>
                 <div>
-                    <h2 className='font-semibold text-white'>Shyam Kumar Sharma</h2>
+                    <h2 className='font-semibold text-white'>{user?.email}</h2>
                     <p className=' text-white'>{address}</p>
                 </div>
             </div>
@@ -106,6 +109,8 @@ function Navbar() {
             console.log(err);
         })
     }
+
+
 
 
 
