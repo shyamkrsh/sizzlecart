@@ -62,6 +62,16 @@ function Navbar() {
 
     const user = useSelector((state) => state.user.user);
 
+    const handleLogout = () => {
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/user/logout`, {}, {
+            withCredentials: true,
+        }).then((res) => {
+            location.href = '/';
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
     const DrawerList = (
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
             <div onClick={() => navigate("/profilePage")} className='flex justify-center gap-2 items-center p-2' style={{ backgroundColor: '#40372d' }}>
@@ -84,6 +94,7 @@ function Navbar() {
                 <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '>Help Center</Link></li>
                 <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '>Choose Language</Link></li>
                 <li className='px-3 py-2 text-xl '><Link to={"/admin"} className='flex items-center gap-4 px-3 '>Admin Panel</Link></li>
+                <li className='px-3 py-2 text-xl ' onClick={handleLogout}>Logout</li>
             </ul>
 
         </Box>

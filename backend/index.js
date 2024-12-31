@@ -25,7 +25,6 @@ app.use(cors({
     origin: ["http://localhost:5173", "https://sizzlecartbackend.vercel.app"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
-
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));

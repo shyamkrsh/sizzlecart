@@ -6,6 +6,7 @@ const userController = require('../controllers/userController');
 
 router.post("/verifyOtp", userController.verifyOtp);
 router.post("/login", userController.login);
+router.post("/logout", userController.logout);
 
 
 

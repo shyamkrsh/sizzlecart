@@ -94,3 +94,22 @@ module.exports.login = async (req, res) => {
         });
     }
 }
+
+module.exports.logout = async (req, res) => {
+    try {
+        res.clearCookie("token");
+        res.status(200).json({
+            message: "Logout successful",
+            data: [],
+            success: true,
+            error: false,
+        });
+    } catch (err) {
+        res.status(500).json({
+            message: "Internal server error",
+            data: [],
+            success: false,
+            error: true,
+        });
+    }
+}
