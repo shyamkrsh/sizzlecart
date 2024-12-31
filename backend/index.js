@@ -35,6 +35,9 @@ app.use(cookieParser());
 app.use("/api/user", userRouter);
 app.get("/api/user-details", authToken, userDetailsController)
 
+app.get("/demo", (req, res) => {
+    res.send("Hello world");
+});
 
 
 
