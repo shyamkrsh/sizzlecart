@@ -48,6 +48,7 @@ function App() {
             <Route path='/cartPage' element={<CartPage />}></Route>
             <Route path='/wishlistPage' element={<WishlistPage />}></Route>
             <Route path='/profilePage' element={<ProfilePage />}></Route>
+            
           </Routes>
           <Footer />
         </BrowserRouter>

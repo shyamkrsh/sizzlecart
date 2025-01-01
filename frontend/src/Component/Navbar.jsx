@@ -93,8 +93,8 @@ function Navbar() {
                 <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaBell className='text-slate-600' /> My Notifications</Link></li>
                 <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '>Help Center</Link></li>
                 <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '>Choose Language</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/admin"} className='flex items-center gap-4 px-3 '>Admin Panel</Link></li>
-                <li className='px-3 py-2 text-xl ' onClick={handleLogout}>Logout</li>
+                <li className={user?._id ? 'px-3 py-2 text-xl': 'hidden'}><Link to={"/admin"} className='flex items-center gap-4 px-3 '>Admin Panel</Link></li>
+                <li className={user?._id ? 'px-3 py-2 text-xl': 'hidden'} onClick={handleLogout}>Logout</li>
             </ul>
 
         </Box>
@@ -187,7 +187,7 @@ function Navbar() {
                                     </Badge>
                                 </Link></li>
                             <li className=''>
-                                <FaUserCircle className='text-2xl' onClick={handleClickOpen} />
+                                <FaUserCircle className='text-2xl' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
                             </li>
                             <React.Fragment>
                                 <Dialog
