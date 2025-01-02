@@ -3,7 +3,6 @@ const User = require("../models/User");
 async function userDetailsController(req, res) {
     try {
         const user = await User.findById(req.userId);
-        console.log("User", user);
         if(!user){
             throw new Error("User not login");
         }

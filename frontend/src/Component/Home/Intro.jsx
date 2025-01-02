@@ -2,10 +2,11 @@ import React from 'react'
 import { IoSearch } from "react-icons/io5";
 import SelectCategory from './SelectCategory';
 import { FaLocationDot } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
 function Intro() {
 
-
+    const navigate = useNavigate();
 
 
     return (
@@ -20,7 +21,7 @@ function Intro() {
                             <p className='md:text-4xl font-bold'>Get Healthy & Pure massala in Patna</p>
                         </div>
                         <div className='mt-1 md:hidden w-[90%] mx-auto'>
-                            <div className='w-[100%] h-[3rem] flex items-center justify-center bg-white rounded-md ps-2'>
+                            <div className='w-[100%] h-[3rem] flex items-center justify-center bg-white rounded-md ps-2' onClick={() => navigate("/search-products")}>
                                 <IoSearch className='text-2xl text-slate-700 ' />
                                 <input type="text"
                                     placeholder='search products, spices'

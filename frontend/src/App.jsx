@@ -10,6 +10,8 @@ import { useDispatch } from 'react-redux'
 import { setUserDetails } from './store/UserSlice'
 import { useEffect } from 'react'
 import Context from './Context/Context'
+import SearchProductsPage from './Component/SearchProducts/SearchProductsPage'
+import ShowProductPage from './Component/ShowProduct/ShowProductPage'
 
 
 
@@ -48,6 +50,8 @@ function App() {
             <Route path='/cartPage' element={<CartPage />}></Route>
             <Route path='/wishlistPage' element={<WishlistPage />}></Route>
             <Route path='/profilePage' element={<ProfilePage />}></Route>
+            <Route path='/search-products' element={<SearchProductsPage />}></Route>
+            <Route path='/show-products' element={<ShowProductPage />}></Route>
             
           </Routes>
           <Footer />

@@ -6,7 +6,7 @@ function Blogs() {
         <div className='bg-slate-100 py-12 '>
             <h1 className='text-3xl md:text-4xl text-center mt-5'>𝐌𝐨𝐬𝐭 𝐑𝐞𝐚𝐝𝐚𝐛𝐥𝐞 𝐁𝐥𝐨𝐠𝐬</h1>
 
-            <div className="card-container md:px-[10%] mt-12 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-content-center">
+            <div className="card-container md:px-[10%] mt-12 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center">
                 <div className='card w-[20rem] h-[30rem] border p-2  shadow-sm bg-white rounded-sm'>
                     <div className='w-100 h-[60%]'>
                         <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[100%] h-[100%]' />
