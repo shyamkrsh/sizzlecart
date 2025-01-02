@@ -28,7 +28,7 @@ function Product({image, title, price, offers, weight, deliveryBy}) {
                 </div>
                 <div className='w-100 h-[40%] flex flex-col gap-2'>
                     <h2 className='mt-4 font-semibold text-xl'>{title}</h2>
-                    <p className='text-red-500 font-semibold'>₹ {price} / {weight} Kg</p>
+                    <p className='text-red-500 font-semibold'>₹ {price} / {weight}</p>
                     <button className='flex justify-center items-center gap-3 bg-black text-white w-[100%] p-2' onClick={() => addItem(image, title, price, offers, deliveryBy, weight)}><FaShoppingCart /> ADD TO CART</button>
                 </div>
             </div>

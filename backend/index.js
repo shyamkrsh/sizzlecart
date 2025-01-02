@@ -6,6 +6,8 @@ const PORT = 8080 || process.env.PORT;
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const Product = require('./models/Product');
+const TrendingProduct = require('./models/TrendingProduct');
+const BestProduct = require('./models/BestProduct');
 
 const userRouter = require('./routes/userRouter');
 const authToken = require('./middlewares/authToken');
@@ -42,14 +44,13 @@ app.get("/demo", (req, res) => {
     res.send("Hello world");
 });
 
-const products = require('./data');
-app.get("/api/products", async(req, res) => {
-
-    for (let i = 0; i < products.length; i++) {
-        let product = new Product(products[i]);
-        await product.save();
-    }
-})
+// const products = require('./data');
+// app.get("/api/products", async(req, res) => {
+//     for (let i = 0; i < 4; i++) {
+//         let product = new BestProduct(products[i]);
+//         await product.save();
+//     }
+// })
 
 
 
