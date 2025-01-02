@@ -5,10 +5,13 @@ const app =express();
 const PORT = 8080 || process.env.PORT;
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const Product = require('./models/Product');
 
 const userRouter = require('./routes/userRouter');
 const authToken = require('./middlewares/authToken');
 const userDetailsController = require('./controllers/userDetails');
+const productRouter = require('./routes/productRouter');
+
 
 
 main().then((res) => {
@@ -31,12 +34,22 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
 
+app.get("/api/user-details", authToken, userDetailsController);
 app.use("/api/user", userRouter);
-app.get("/api/user-details", authToken, userDetailsController)
+app.use("/api/products", productRouter);
 
 app.get("/demo", (req, res) => {
     res.send("Hello world");
 });
+
+const products = require('./data');
+app.get("/api/products", async(req, res) => {
+
+    for (let i = 0; i < products.length; i++) {
+        let product = new Product(products[i]);
+        await product.save();
+    }
+})
 
 
 
