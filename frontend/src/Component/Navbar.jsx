@@ -52,7 +52,7 @@ function Navbar() {
     useEffect(() => {
         setInterval(() => {
             const products = JSON.parse(localStorage.getItem('products'));
-            setProducts(products.length);
+            setProducts(products?.length);
         })
     }, []);
     const [open, setOpen] = React.useState(false);
@@ -60,7 +60,7 @@ function Navbar() {
         setOpen(newOpen);
     };
 
-    const user = useSelector((state) => state.user.user);
+    const user = useSelector((state) => state?.user?.user);
 
     const handleLogout = () => {
         axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/user/logout`, {}, {
