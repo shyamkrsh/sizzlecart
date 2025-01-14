@@ -119,24 +119,24 @@ function Navbar() {
 
 
     return (
-        <nav className='w-[100%] md:sticky md:top-0   z-50'>
-            <div className='z-50 flex w-[100%] h-16 justify-between items-center px-5 text-white' style={{ backgroundColor: '#40372d' }} >
+        <nav className='w-[100%] md:sticky md:top-0   z-50 bg-slate-50 '>
+            <div className='z-50 flex w-[100%] h-16 justify-between items-center px-5'>
                 <div className='md:hidden'>
                     <IoIosMenu onClick={toggleDrawer(true)} className='text-4xl font-semibold' />
                     <Drawer open={open} onClose={toggleDrawer(false)}>
                         {DrawerList}
                     </Drawer>
                 </div>
-                <div onClick={() => navigate("/")} className='cursor-pointer ' style={{ backgroundColor: '#40372d' }}>
-                    <h1 className='font-sans text-2xl font-bold ' style={{ background: 'linear-gradient(to bottom, yellow 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
+                <div onClick={() => navigate("/")} className='cursor-pointer '>
+                    <h1 className='font-sans text-2xl font-bold ' style={{ background: 'linear-gradient(to bottom, #4aa832 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
                 </div>
 
                 <div className='w-[40%] hidden md:block'>
-                    <div className='w-[100%] h-[2.5rem] flex items-center justify-center bg-slate-50 rounded-md ps-2'>
+                    <div className='w-[100%] h-[3rem] flex items-center justify-center bg-white rounded-md ps-2 border-2'>
                         <IoSearch className='text-2xl text-slate-700' />
                         <input type="text"
                             placeholder='search products, spices'
-                            className='w-[100%] h-[2.5rem] px-2 flex items-center justify-start rounded-md outline-none text-slate-600 font-semibold bg-slate-50'
+                            className='w-[100%] h-[2.5rem] px-2 rounded-md outline-none text-slate-600 font-semibold'
                         />
                     </div>
                 </div>
@@ -153,11 +153,11 @@ function Navbar() {
                             <li className=''>
                                 <Link to={"/cartPage"}>
                                     <Badge badgeContent={products} color="error">
-                                        <FaShoppingCart className='text-3xl' />
+                                        <FaShoppingCart className='text-3xl text-slate-600' />
                                     </Badge>
                                 </Link></li>
                             <li className=''>
-                                <FaUserCircle className='text-3xl' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
+                                <FaUserCircle className='text-3xl text-slate-600' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
                             </li>
                             <React.Fragment>
                                 <Dialog
