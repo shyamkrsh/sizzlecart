@@ -20,22 +20,22 @@ function Intro() {
             <div className='relative w-[100%] h-[33vh] md:h-[50vh] py-3 bg-white overflow-hidden md:mt-10'>
                     <Slider {...settings}>
                         <div className="w-[100%] h-full rounded-lg ">
-                            <img src="./src/assets/slide-1.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
+                            <img src="https://i.ibb.co/vQsDb33/slide-1.webp" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
                         </div>
                         <div className="w-[100%] h-full rounded-lg ">
-                            <img src="./src/assets/slide-2.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
+                            <img src="https://i.ibb.co/sq6NDFy/slide-2.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
                         </div>
                         <div className="w-[100%] h-full rounded-lg">
-                            <img src="./src/assets/slide-3.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
+                            <img src="https://i.ibb.co/3FtH8Tm/slide-3.png" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
                         </div>
                         <div className="w-[100%] h-full rounded-lg ">
-                            <img src="./src/assets/slide-4.jpeg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
+                            <img src="https://i.ibb.co/vQJSkCW/slide-4.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
                         </div>
                         <div className="w-[100%] h-full rounded-lg ">
-                            <img src="./src/assets/slide-5.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
+                            <img src="https://i.ibb.co/3NcB4Dm/slide-5.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
                         </div>
                         <div className="w-[100%] h-full rounded-lg ">
-                            <img src="./src/assets/slide-6.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
+                            <img src="https://i.ibb.co/VSh12MS/slide-6.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
                         </div>
                     </Slider >
             </div>

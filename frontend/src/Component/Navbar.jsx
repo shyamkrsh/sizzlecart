@@ -68,7 +68,7 @@ function Navbar() {
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
             <div onClick={() => navigate("/profilePage")} className='flex justify-center gap-2 items-center p-2' style={{ backgroundColor: '#40372d' }}>
                 <div>
-                    <img src="./src/assets/user.png" alt="" className='w-[2.5rem] h-[2.5rem] rounded-full' />
+                    <img src="https://i.ibb.co/Zm6qmB9/user.png" alt="" className='w-[2.5rem] h-[2.5rem] rounded-full' />
                 </div>
                 <div className={user?._id ? 'block' : 'hidden'}>
                     <h2 className='font-semibold text-white'>{user?.email}</h2>

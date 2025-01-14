@@ -11,12 +11,14 @@ function BestProducts() {
     }, [])
 
     return (
-        <div className='mt-12 bg-white py-5'>
-            <h1 className='text-3xl md:text-4xl text-center'>𝐎𝐮𝐫 𝐁𝐞𝐬𝐭 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐬</h1>
-            <div className='card-container flex px-5 overflow-x-scroll'>
+        <div className='mt-2 bg-white w-[100%] h-[30rem] px-[3%]'>
+            <h1 className='text-2xl md:text-4xl ps-4 md:ps-0 md:text-center '>𝐓𝐫𝐞𝐧𝐝𝐢𝐧𝐠 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐬</h1>
+            <div className='mt-1  flex items-center overflow-y-hidden overflow-x-scroll  w-[100%] h-[80%] cards-container'>
                 {
                     products?.map((product, index) => (
-                        <Product key={index} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28 | ₹40Free"} />
+                        <div>
+                            <Product key={index} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28 | ₹40Free"} />
+                        </div>
                     ))
                 }
             </div>
