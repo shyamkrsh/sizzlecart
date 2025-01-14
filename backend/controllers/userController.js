@@ -10,7 +10,6 @@ module.exports.verifyOtp = async (req, res) => {
         const otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false });
         sendMail(email, otp).then(async (response) => {
             const user = await User.findOne({ email: email });
-
             const salt = bcrypt.genSaltSync(10);
             const hashedOtp = bcrypt.hashSync(otp, salt);
 
