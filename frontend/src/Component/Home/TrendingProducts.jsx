@@ -9,14 +9,14 @@ function TrendingProducts() {
             setProducts(res?.data);
         })
     }, [])
-    
+
     return (
-        <div className='mt-1 border bg-white py-5'>
-            <h1 className='text-3xl md:text-4xl text-center'>𝐓𝐫𝐞𝐧𝐝𝐢𝐧𝐠 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐬</h1>
-            <div className='card-container px-[5%] md:px-[10%] grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-12 place-items-center'>
+        <div className='mt-1 bg-white py-5'>
+            <h1 className='text-2xl md:text-4xl ps-4 md:ps-0 md:text-center'>𝐓𝐫𝐞𝐧𝐝𝐢𝐧𝐠 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐬</h1>
+            <div className='flex overflow-x-scroll overflow-y-hidden'>
                 {
                     products?.map((product, index) => (
-                        <Product key={index} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28 | ₹40Free"}/>
+                            <Product key={index} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28 | ₹40Free"} />
                     ))
                 }
             </div>
