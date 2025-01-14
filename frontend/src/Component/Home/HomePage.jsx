@@ -10,7 +10,7 @@ import Location from './Location'
 function HomePage() {
   return (
     <>
-      <div className='bg-slate-50'>
+      <div className=''>
         <Location/>
         <Search />
         <Intro />

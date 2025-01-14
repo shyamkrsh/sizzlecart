@@ -17,15 +17,15 @@ function Intro() {
 
     return (
         <>
-            <div className='relative w-[100%] h-[50vh] py-3 gb-slate-50 overflow-hidden md:mt-10'>
+            <div className='relative w-[100%] h-[33vh] md:h-[50vh] py-3 bg-white overflow-hidden md:mt-10'>
                     <Slider {...settings}>
                         <div className="w-[100%] h-full rounded-lg ">
                             <img src="./src/assets/slide-1.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
                         </div>
-                        <div className="w-[100%] h-full rounded-lg  overflow-hidden">
+                        <div className="w-[100%] h-full rounded-lg ">
                             <img src="./src/assets/slide-2.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
                         </div>
-                        <div className="w-[100%] h-full rounded-lg  overflow-hidden">
+                        <div className="w-[100%] h-full rounded-lg">
                             <img src="./src/assets/slide-3.jpg" className="w-[90%] h-full rounded-lg shadow-lg mx-auto" />
                         </div>
                         <div className="w-[100%] h-full rounded-lg ">
