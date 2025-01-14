@@ -3,14 +3,13 @@ import CategoryCard from './CategoryCard'
 
 function SelectCategory() {
     return (
-        <div className='grid grid-cols-auto-fit md:grid-cols-auto-fill bg-slate-100 w-[90%] rounded-md justify-center gap-4'
-            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))' }}>
+        <div className='w-[100%] flex items-center justify-center px-[20%]'>
             <CategoryCard />
             <CategoryCard />
             <CategoryCard />
             <CategoryCard />
             <CategoryCard />
-            <CategoryCard />
+            
         </div>
     )
 }

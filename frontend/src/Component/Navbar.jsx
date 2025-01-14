@@ -6,30 +6,22 @@ import { FaUserCircle } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import { FaHome } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import { MdBorderColor } from "react-icons/md";
-import { BiSolidCoupon } from "react-icons/bi";
-import { FaCartArrowDown } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
-import { FaBell } from "react-icons/fa";
+import { IoHomeOutline } from "react-icons/io5";
+import { FaRegUser } from "react-icons/fa";
+import { MdOutlineBorderColor } from "react-icons/md";
+import { RiCouponLine } from "react-icons/ri";
+import { IoCartOutline } from "react-icons/io5";
+import { MdFavoriteBorder } from "react-icons/md";
+import { FaRegBell } from "react-icons/fa6";
 import { TextField, InputAdornment } from '@mui/material';
-import Button from '@mui/material/Button';
+import { LuLogOut } from "react-icons/lu";
 import Dialog from '@mui/material/Dialog';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemButton from '@mui/material/ListItemButton';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import OtpInput from './Auth/OtpInput';
 import { MdEmail } from "react-icons/md";
 import axios from 'axios';
@@ -76,25 +68,28 @@ function Navbar() {
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
             <div onClick={() => navigate("/profilePage")} className='flex justify-center gap-2 items-center p-2' style={{ backgroundColor: '#40372d' }}>
                 <div>
-                    <img src="https://i.ibb.co/9hL97vT/profile.jpg" alt="" className='w-[3rem] h-[3rem] rounded-full border border-red-800' />
+                    <img src="./src/assets/user.png" alt="" className='w-[2.5rem] h-[2.5rem] rounded-full' />
                 </div>
-                <div>
+                <div className={user?._id ? 'block' : 'hidden'}>
                     <h2 className='font-semibold text-white'>{user?.email}</h2>
-                    <p className=' text-white'>{address}</p>
+                    <p className=' text-white'>{"Patna, Bihar"}</p>
+                </div>
+                <div className={user?._id ? 'hidden' : 'block'}>
+                    <h2 className='font-semibold text-white'>Signup & Login</h2>
                 </div>
             </div>
-            <ul className='pt-5'>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaHome className='text-slate-600' /> Home</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/profilePage"} className='flex items-center gap-4 px-3 '><FaUser className='text-slate-600' /> My Account</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><MdBorderColor className='text-slate-600' /> My Orders</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><BiSolidCoupon className='text-slate-600' /> Coupons</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/cartPage"} className='flex items-center gap-4 px-3 '><FaCartArrowDown className='text-slate-600' /> My Cart</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/wishlistPage"} className='flex items-center gap-4 px-3 '><FaHeart className='text-slate-600' /> Wishlist</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '><FaBell className='text-slate-600' /> My Notifications</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '>Help Center</Link></li>
-                <li className='px-3 py-2 text-xl '><Link to={"/"} className='flex items-center gap-4 px-3 '>Choose Language</Link></li>
-                <li className={user?._id ? 'px-3 py-2 text-xl': 'hidden'}><Link to={"/admin"} className='flex items-center gap-4 px-3 '>Admin Panel</Link></li>
-                <li className={user?._id ? 'px-3 py-2 text-xl': 'hidden'} onClick={handleLogout}>Logout</li>
+            <ul className='pt-5 border-black'>
+                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/"} className='flex items-center gap-4 px-3 '><IoHomeOutline className='text-slate-600 text-3xl font-semibold' /> Home  </Link></li>
+                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/profilePage"} className='flex items-center gap-4 px-3 '><FaRegUser className='text-slate-600 text-3xl font-semibold' /> My Account</Link></li>
+                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/"} className='flex items-center gap-4 px-3 '><MdOutlineBorderColor className='text-slate-600 text-3xl font-semibold' /> My Orders</Link></li>
+                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/"} className='flex items-center gap-4 px-3 '><RiCouponLine className='text-slate-600 text-3xl font-semibold' /> Coupons</Link></li>
+                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/cartPage"} className='flex items-center gap-4 px-3 '><IoCartOutline className='text-slate-600 text-3xl font-semibold' /> My Cart</Link></li>
+                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/wishlistPage"} className='flex items-center gap-4 px-3 '><MdFavoriteBorder className='text-slate-600 text-3xl font-semibold' /> Wishlist</Link></li>
+                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/"} className='flex items-center gap-4 px-3 '><FaRegBell className='text-slate-600 text-3xl font-semibold' /> My Notifications</Link></li>
+                {/* <li className='px-3 py-2 text-xl hover:bg-yellow-50'><Link to={"/"} className='flex items-center gap-4 px-3 '>Help Center</Link></li>
+                <li className='px-3 py-2 text-xl hover:bg-yellow-50'><Link to={"/"} className='flex items-center gap-4 px-3 '>Choose Language</Link></li>
+                <li className={user?._id ? 'px-3 py-2 text-xl': 'hidden'}><Link to={"/admin"} className='flex items-center gap-4 px-3 '>Admin Panel</Link></li> */}
+                <li className={user?._id ? 'px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700' : 'hidden'} onClick={handleLogout}><Link className='flex items-center gap-4 px-3'><LuLogOut className='text-slate-600 text-3xl font-semibold' />Logout</Link></li>
             </ul>
 
         </Box>
@@ -123,36 +118,11 @@ function Navbar() {
 
 
 
-
-
-
-    useEffect(() => {
-        if (navigator?.geolocation) {
-            navigator?.geolocation?.getCurrentPosition(
-                (position) => {
-                    const latitude = position?.coords?.latitude;
-                    const longitude = position?.coords?.longitude;
-                    // axios.get(`http://api.positionstack.com/v1/reverse?access_key=b450251c2d1c4fbe06d326abaffa295d&query=${latitude},${longitude}`).then((res) => {
-                    //     setAddress(res.data.data[0].name);
-                        
-                    // })
-                },
-                (error) => {
-                    console.error('Error getting location:', error.message);
-                }
-            );
-        } else {
-            console.error('Geolocation is not supported by this browser.');
-        }
-    }, [])
-
-
-
     return (
-        <div className='w-[100%] sticky top-0 z-50'>
-            <nav className='z-50 flex w-[100%] h-16 justify-between items-center px-5 text-white' style={{ backgroundColor: '#40372d' }} >
+        <nav className='w-[100%] md:sticky md:top-0   z-50'>
+            <div className='z-50 flex w-[100%] h-16 justify-between items-center px-5 text-white' style={{ backgroundColor: '#40372d' }} >
                 <div className='md:hidden'>
-                    <IoIosMenu onClick={toggleDrawer(true)} className='text-3xl' />
+                    <IoIosMenu onClick={toggleDrawer(true)} className='text-4xl font-semibold' />
                     <Drawer open={open} onClose={toggleDrawer(false)}>
                         {DrawerList}
                     </Drawer>
@@ -183,11 +153,11 @@ function Navbar() {
                             <li className=''>
                                 <Link to={"/cartPage"}>
                                     <Badge badgeContent={products} color="error">
-                                        <FaShoppingCart className='text-2xl' />
+                                        <FaShoppingCart className='text-3xl' />
                                     </Badge>
                                 </Link></li>
                             <li className=''>
-                                <FaUserCircle className='text-2xl' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
+                                <FaUserCircle className='text-3xl' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
                             </li>
                             <React.Fragment>
                                 <Dialog
@@ -248,8 +218,8 @@ function Navbar() {
                         </div>
                     </ul>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     )
 }
 
