@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Badge from '@mui/material/Badge';
-import { FaShoppingCart } from "react-icons/fa";
-import { FaUserCircle } from "react-icons/fa";
+import { BsCart3 } from "react-icons/bs";
+import { FaRegUserCircle } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -15,6 +15,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { FaRegBell } from "react-icons/fa6";
 import { TextField, InputAdornment } from '@mui/material';
 import { LuLogOut } from "react-icons/lu";
+import { IoSettingsOutline } from "react-icons/io5";
 import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -66,7 +67,7 @@ function Navbar() {
 
     const DrawerList = (
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-            <div onClick={() => navigate("/profilePage")} className='flex justify-center gap-2 items-center p-2' style={{ backgroundColor: '#40372d' }}>
+            <div onClick={() => navigate("/profilePage")} className='flex justify-start ps-5 gap-2 items-center p-2 bg-slate-50' >
                 <div>
                     <img src="https://i.ibb.co/Zm6qmB9/user.png" alt="" className='w-[2.5rem] h-[2.5rem] rounded-full' />
                 </div>
@@ -75,20 +76,18 @@ function Navbar() {
                     <p className=' text-white'>{"Patna, Bihar"}</p>
                 </div>
                 <div className={user?._id ? 'hidden' : 'block'}>
-                    <h2 className='font-semibold text-white'>Signup & Login</h2>
+                    <h2 className='text-slate-600' style={{fontSize: '1rem ', fontWeight: '750'}}>Signup & Login</h2>
                 </div>
             </div>
             <ul className='pt-5 border-black'>
-                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/"} className='flex items-center gap-4 px-3 '><IoHomeOutline className='text-slate-600 text-3xl font-semibold' /> Home  </Link></li>
-                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/profilePage"} className='flex items-center gap-4 px-3 '><FaRegUser className='text-slate-600 text-3xl font-semibold' /> My Account</Link></li>
-                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/"} className='flex items-center gap-4 px-3 '><MdOutlineBorderColor className='text-slate-600 text-3xl font-semibold' /> My Orders</Link></li>
-                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/"} className='flex items-center gap-4 px-3 '><RiCouponLine className='text-slate-600 text-3xl font-semibold' /> Coupons</Link></li>
-                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/cartPage"} className='flex items-center gap-4 px-3 '><IoCartOutline className='text-slate-600 text-3xl font-semibold' /> My Cart</Link></li>
-                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/wishlistPage"} className='flex items-center gap-4 px-3 '><MdFavoriteBorder className='text-slate-600 text-3xl font-semibold' /> Wishlist</Link></li>
-                <li className='px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700'><Link to={"/"} className='flex items-center gap-4 px-3 '><FaRegBell className='text-slate-600 text-3xl font-semibold' /> My Notifications</Link></li>
-                {/* <li className='px-3 py-2 text-xl hover:bg-yellow-50'><Link to={"/"} className='flex items-center gap-4 px-3 '>Help Center</Link></li>
-                <li className='px-3 py-2 text-xl hover:bg-yellow-50'><Link to={"/"} className='flex items-center gap-4 px-3 '>Choose Language</Link></li>
-                <li className={user?._id ? 'px-3 py-2 text-xl': 'hidden'}><Link to={"/admin"} className='flex items-center gap-4 px-3 '>Admin Panel</Link></li> */}
+                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><IoHomeOutline className='text-slate-600 text-2xl font-semibold' /> Home  </Link></li>
+                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/profilePage"} className='flex items-center gap-4 px-3 '><FaRegUser className='text-slate-600 text-2xl font-semibold' /> My Account</Link></li>
+                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><MdOutlineBorderColor className='text-slate-600 text-2xl font-semibold' /> My Orders</Link></li>
+                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><RiCouponLine className='text-slate-600 text-2xl font-semibold' /> Coupons</Link></li>
+                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/cartPage"} className='flex items-center gap-4 px-3 '><IoCartOutline className='text-slate-600 text-2xl font-semibold' /> My Cart</Link></li>
+                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/wishlistPage"} className='flex items-center gap-4 px-3 '><MdFavoriteBorder className='text-slate-600 text-2xl font-semibold' /> Wishlist</Link></li>
+                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><FaRegBell className='text-slate-600 text-2xl font-semibold' /> My Notifications</Link></li>
+                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><IoSettingsOutline className='text-slate-600 text-2xl font-semibold' /> Settings</Link></li>
                 <li className={user?._id ? 'px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700' : 'hidden'} onClick={handleLogout}><Link className='flex items-center gap-4 px-3'><LuLogOut className='text-slate-600 text-3xl font-semibold' />Logout</Link></li>
             </ul>
 
@@ -130,7 +129,6 @@ function Navbar() {
                 <div onClick={() => navigate("/")} className='cursor-pointer '>
                     <h1 className='font-sans text-2xl font-bold ' style={{ background: 'linear-gradient(to bottom, #4aa832 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
                 </div>
-
                 <div className='w-[40%] hidden md:block'>
                     <div className='w-[100%] h-[3rem] flex items-center justify-center bg-white rounded-md ps-2 border-2'>
                         <IoSearch className='text-2xl text-slate-700' />
@@ -147,17 +145,18 @@ function Navbar() {
                                 <FaLocationDot />
                                 <p>{address}</p>
                             </div></li>
-                            <li className={'text-white'} ><Link to={"/offers"}>Offers</Link></li>
+                            <li className={'text-black'} ><Link to={"/offers"}>Offers</Link></li>
                         </div>
                         <div className='flex gap-8'>
                             <li className=''>
                                 <Link to={"/cartPage"}>
-                                    <Badge badgeContent={products} color="error">
-                                        <FaShoppingCart className='text-3xl text-slate-600' />
+                                    <Badge badgeContent={products} color="error" >
+                                        <BsCart3 className='text-2xl text-slate-600' />
                                     </Badge>
-                                </Link></li>
+                                </Link>
+                            </li>
                             <li className=''>
-                                <FaUserCircle className='text-3xl text-slate-600' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
+                                <FaRegUserCircle className='text-3xl text-slate-600' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
                             </li>
                             <React.Fragment>
                                 <Dialog
