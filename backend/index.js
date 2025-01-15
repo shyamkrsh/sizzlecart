@@ -40,8 +40,8 @@ app.get("/demo", (req, res) => {
     res.send("Hello world");
 });
 
-const products = require("./data");
-const Product = require('./models/Product');
+// const products = require("./data");
+// const Product = require('./models/Product');
 
 // app.get("/api/products", async(req, res) => {
 //     for(let i = 0; i < products.length; i++){
