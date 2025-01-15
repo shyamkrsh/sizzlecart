@@ -6,7 +6,7 @@ function SearchProductsPage() {
   const [value, setValue] = React.useState('');
 
   return (
-    <div>
+    <div className='w-[100%]'>
       <Searchbar value={value} setValue={setValue} />
       <ProductContainer value={value} />
     </div>
