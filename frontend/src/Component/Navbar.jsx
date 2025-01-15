@@ -76,18 +76,18 @@ function Navbar() {
                     <p className=' text-white'>{"Patna, Bihar"}</p>
                 </div>
                 <div className={user?._id ? 'hidden' : 'block'}>
-                    <h2 className='text-slate-600' style={{fontSize: '1rem ', fontWeight: '750'}}>Signup & Login</h2>
+                    <h2 className='text-slate-600' style={{ fontSize: '1rem ', fontWeight: '750' }}>Signup & Login</h2>
                 </div>
             </div>
             <ul className='pt-5 border-black'>
-                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><IoHomeOutline className='text-slate-600 text-2xl font-semibold' /> Home  </Link></li>
-                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/profilePage"} className='flex items-center gap-4 px-3 '><FaRegUser className='text-slate-600 text-2xl font-semibold' /> My Account</Link></li>
-                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><MdOutlineBorderColor className='text-slate-600 text-2xl font-semibold' /> My Orders</Link></li>
-                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><RiCouponLine className='text-slate-600 text-2xl font-semibold' /> Coupons</Link></li>
-                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/cartPage"} className='flex items-center gap-4 px-3 '><IoCartOutline className='text-slate-600 text-2xl font-semibold' /> My Cart</Link></li>
-                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/wishlistPage"} className='flex items-center gap-4 px-3 '><MdFavoriteBorder className='text-slate-600 text-2xl font-semibold' /> Wishlist</Link></li>
-                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><FaRegBell className='text-slate-600 text-2xl font-semibold' /> My Notifications</Link></li>
-                <li style={{fontSize: '1rem ', fontWeight: '750'}} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><IoSettingsOutline className='text-slate-600 text-2xl font-semibold' /> Settings</Link></li>
+                <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><IoHomeOutline className='text-slate-600 text-2xl font-semibold' /> Home  </Link></li>
+                <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/profilePage"} className='flex items-center gap-4 px-3 '><FaRegUser className='text-slate-600 text-2xl font-semibold' /> My Account</Link></li>
+                <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><MdOutlineBorderColor className='text-slate-600 text-2xl font-semibold' /> My Orders</Link></li>
+                <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><RiCouponLine className='text-slate-600 text-2xl font-semibold' /> Coupons</Link></li>
+                <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/cartPage"} className='flex items-center gap-4 px-3 '><IoCartOutline className='text-slate-600 text-2xl font-semibold' /> My Cart</Link></li>
+                <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/wishlistPage"} className='flex items-center gap-4 px-3 '><MdFavoriteBorder className='text-slate-600 text-2xl font-semibold' /> Wishlist</Link></li>
+                <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><FaRegBell className='text-slate-600 text-2xl font-semibold' /> My Notifications</Link></li>
+                <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><IoSettingsOutline className='text-slate-600 text-2xl font-semibold' /> Settings</Link></li>
                 <li className={user?._id ? 'px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700' : 'hidden'} onClick={handleLogout}><Link className='flex items-center gap-4 px-3'><LuLogOut className='text-slate-600 text-3xl font-semibold' />Logout</Link></li>
             </ul>
 
@@ -165,10 +165,10 @@ function Navbar() {
                                     onClose={handleClose}
                                     TransitionComponent={Transition}
                                 >
-                                    <AppBar sx={{ position: 'relative', backgroundColor: '#40372d' }}>
+                                    <AppBar sx={{ position: 'relative', backgroundColor: 'rgb(248, 250, 252)' }}>
                                         <Toolbar>
                                             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                                                <h1 className='font-sans text-2xl font-bold' style={{ background: 'linear-gradient(to bottom, yellow 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
+                                            <h1 className='text-xl text-slate-600 font-semibold'>Login to your Account</h1>
                                             </Typography>
                                             <IconButton
                                                 edge="start"
@@ -176,17 +176,15 @@ function Navbar() {
                                                 onClick={handleClose}
                                                 aria-label="close"
                                             >
-                                                <CloseIcon />
+                                                <CloseIcon className='text-slate-900 text-xl font-semibold' />
                                             </IconButton>
                                         </Toolbar>
                                     </AppBar>
-                                    <div className='p-5'>
-                                        <h3 className='text-xl font-semibold'>Login for the best experience</h3>
-                                        <p className='text-slate-500'>Enter your phone number to continue</p>
-                                    </div>
+                                   
                                     <form onSubmit={handleSubmit}>
-                                        <div className='text-center mt-10'>
-                                            <div className={showOtp ? 'hidden' : 'block'}>
+                                        <div className={showOtp ? 'hidden' : 'text-center mt-10'}>
+                                            <p className='text-slate-500 mb-5'>Enter your phone number to Email</p>
+                                            <div>
                                                 <TextField
                                                     id="outlined-basic"
                                                     label="Email Id"
@@ -205,7 +203,7 @@ function Navbar() {
                                             <br /><br />
                                         </div>
 
-                                        <div className={showOtp ? 'hidden' : 'block mt-[10rem] text-center'}>
+                                        <div className={showOtp ? 'hidden' : 'block  text-center'}>
                                             <button className='text-white bg-amber-600 w-[10rem] py-3 text-xl hover:bg-amber-700' type='submit'>Continue</button>
                                         </div>
                                     </form>
