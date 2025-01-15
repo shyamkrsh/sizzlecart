@@ -3,7 +3,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 function BlogsCard({image, heading, content, link}) {
     return (
-        <div className='card w-[20rem] h-[30rem] border p-2  shadow-sm bg-white rounded-sm'>
+        <div className='card w-[95%] md:w-[20rem] h-[30rem] border p-2  shadow-sm bg-white rounded-lg'>
             <div className='w-100 h-[60%]'>
                 <img src={image} alt="" className='w-[100%] h-[100%]' />
             </div>
