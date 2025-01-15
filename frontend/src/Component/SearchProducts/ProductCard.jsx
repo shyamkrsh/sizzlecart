@@ -29,8 +29,8 @@ function ProductCard({image, title, price, offers, weight, deliveryBy}) {
                 <div className='w-100 h-[40%] flex flex-col gap-2 text-left ps-3'>
                     <h2 className='mt-1 font-semibold' style={{fontSize: '1.1rem'}}>{title}</h2>
                     <p className='text-slate-500 text-sm -mt-2'>Pure quality guranteed</p>
-                    <p className='text-red-500 font-semibold -mt-2'>₹ {price} / {weight}</p>
-                    <p className='text-green-700 text-xl font-semibold -mt-2'>{offers}</p>
+                    <p className='text-slate-900 font-semibold -mt-2' style={{fontSize: '1.2rem'}}>₹ {price} / {weight}</p>
+                    <p className='text-green-700 font-semibold -mt-2' style={{fontSize: '1.1rem'}}>{offers}</p>
                     <p className='text-green-700 text-sm font-semibold -mt-2'>⭐⭐⭐⭐</p>
                     <p className='text-slate-900 text-sm -mt-1'>{deliveryBy}</p>
                 </div>
