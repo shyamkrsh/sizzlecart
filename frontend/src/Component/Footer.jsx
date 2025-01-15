@@ -7,20 +7,19 @@ import { FaTwitter } from "react-icons/fa";
 
 function Footer() {
     return (
-        <div className=' bg-black text-white pt-24 md:py-10 px-10'>
+        <div className=' bg-slate-800 text-white pt-24 md:py-10 px-10'>
             <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
-                <div>
+                <div className='hidden md:block'>
                     <ul>
                         <li className='text-xl font-semibold'>Become our Sales Partner</li>
                     </ul>
-                    {/* <p>Start up your profitable journey with us in your own territory .. <a href="/">click</a></p> */}
                 </div>
                 <div>
-                    <ul>
+                    <ul className='flex flex-col items-center justify-center gap-1'>
                         <li className='text-xl font-semibold'>Contact Us</li>
                         <li className='mt-3 flex items-center'><BsGlobe className='text-2xl' /> &nbsp; sizzlecart.com</li>
                         <li className='mt-3 flex items-center'> <CgMail className='text-2xl' /> &nbsp; info@sizzlecart.com</li>
-                        <li className='mt-3 flex items-center gap-5'>
+                        <li className='mt-3 flex items-center gap-5 '>
                             <div className='bg-blue-500 w-[40px] h-[40px] flex items-center justify-center rounded-full'>
                                 <FaFacebookF className='text-xl' />
                             </div>
@@ -34,7 +33,7 @@ function Footer() {
                         </li>
                     </ul>
                 </div>
-                <div>
+                <div className='hidden md:block'>
                     <ul>
                         <li className='text-xl font-semibold'>Quick Links</li>
                         <li className='mt-3'>website.com</li>
@@ -42,7 +41,7 @@ function Footer() {
                         <li className='mt-3'>socials</li>
                     </ul>
                 </div>
-                <div>
+                <div className='hidden md:block'>
                     <ul>
                         <li className='text-xl font-semibold'>For Blogs</li>
                         <p className='mt-3'>Subscribe for informative blogs about spices and recipes.</p>
