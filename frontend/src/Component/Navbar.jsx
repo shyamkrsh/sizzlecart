@@ -87,7 +87,7 @@ function Navbar() {
                 <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/wishlistPage"} className='flex items-center gap-4 px-3 '><MdFavoriteBorder className='text-slate-600 text-2xl font-semibold' /> Wishlist</Link></li>
                 <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><FaRegBell className='text-slate-600 text-2xl font-semibold' /> My Notifications</Link></li>
                 <li style={{ fontSize: '1rem ', fontWeight: '750' }} className='px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600'><Link to={"/"} className='flex items-center gap-4 px-3 '><IoSettingsOutline className='text-slate-600 text-2xl font-semibold' /> Settings</Link></li>
-                <li className={user?._id ? 'px-3 py-2 text-xl hover:bg-yellow-50 font-semibold text-slate-700' : 'hidden'} onClick={handleLogout}><Link className='flex items-center gap-4 px-3'><LuLogOut className='text-slate-600 text-3xl font-semibold' />Logout</Link></li>
+                <li style={{ fontSize: '1rem ', fontWeight: '750' }} className={user?._id ? 'px-3 py-2  hover:bg-yellow-50 font-semibold text-slate-600' : 'hidden'} onClick={handleLogout}><Link className='flex items-center gap-4 px-3'><LuLogOut className='text-slate-600 text-2xl font-semibold' />Logout</Link></li>
             </ul>
 
         </Box>
