@@ -76,7 +76,7 @@ function Navbar() {
                     <p className=' text-white'>{"Patna, Bihar"}</p>
                 </div>
                 <div className={user?._id ? 'hidden' : 'block'}>
-                    <h2 className='text-slate-600' style={{ fontSize: '1rem ', fontWeight: '750' }}>Signup & Login</h2>
+                    <h2 className='text-slate-600' style={{ fontSize: '1rem ', fontWeight: '700' }}>Signup & Login</h2>
                 </div>
             </div>
             <ul className='pt-5 border-black'>
@@ -168,7 +168,7 @@ function Navbar() {
                                     <AppBar sx={{ position: 'relative', backgroundColor: 'rgb(248, 250, 252)', boxShadow: '0px 0px 1px gray' }}>
                                         <Toolbar>
                                             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                                            <h1 className='text-xl text-slate-600 font-semibold'>Login to your Account</h1>
+                                            <h1 className='text-slate-600' style={{fontSize: '1.2rem', fontWeight: '700'}}>Login to your Account</h1>
                                             </Typography>
                                             <IconButton
                                                 edge="start"
