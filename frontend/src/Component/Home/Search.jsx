@@ -1,7 +1,11 @@
 import React from 'react'
 import { IoSearch } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 function Search() {
+
+    const navigate = useNavigate();
+
     return (
         
             <div className='mt-1 md:hidden w-[100%] mx-auto sticky top-0 left-0 z-50 bg-white items-center py-2'>

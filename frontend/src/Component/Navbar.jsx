@@ -115,10 +115,9 @@ function Navbar() {
     }
 
 
-
     return (
         <nav className='w-[100%] md:sticky md:top-0   z-50 bg-slate-50 '>
-            <div className='z-50 flex w-[100%] h-16 justify-between items-center px-5'>
+            <div className='z-50 flex w-[100%] h-14 justify-between items-center px-5'>
                 <div className='md:hidden'>
                     <IoIosMenu onClick={toggleDrawer(true)} className='text-4xl font-semibold' />
                     <Drawer open={open} onClose={toggleDrawer(false)}>
