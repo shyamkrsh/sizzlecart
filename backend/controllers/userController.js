@@ -72,7 +72,8 @@ module.exports.login = async (req, res) => {
 
         const tokenOptions = {
             httpOnly: true,
-            secure: true,       
+            secure: true, 
+            sameSite: 'None'      
         };
 
         res.cookie("token", token, tokenOptions);
