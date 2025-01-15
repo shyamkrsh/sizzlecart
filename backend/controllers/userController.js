@@ -71,11 +71,11 @@ module.exports.login = async (req, res) => {
 
 
         const tokenOptions = {
-            httpOnly: true,  
-            secure: true,      
-            // sameSite: 'None', 
-            // path: '/',            
-            // maxAge: '7d',  
+            httpOnly: true,
+            secure: true,       
+            sameSite: 'lax',    
+            path: '/',          
+            maxAge: '7d',  
         };
 
         res.cookie("token", token, tokenOptions);
@@ -98,7 +98,12 @@ module.exports.login = async (req, res) => {
 
 module.exports.logout = async (req, res) => {
     try {
-        res.clearCookie("token");
+        res.clearCookie("token", {
+            httpOnly: true,
+            secure: true,       
+            sameSite: 'lax',    
+            path: '/',   
+        });
         res.status(200).json({
             message: "Logout successful",
             data: [],
