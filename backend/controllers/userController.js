@@ -73,9 +73,9 @@ module.exports.login = async (req, res) => {
         const tokenOptions = {
             httpOnly: true,  
             secure: true,      
-            sameSite: 'lax', 
-            path: '/',            
-            maxAge: '7d',  
+            // sameSite: 'lax', 
+            // path: '/',            
+            // maxAge: '7d',  
         };
 
         res.cookie("token", token, tokenOptions);
