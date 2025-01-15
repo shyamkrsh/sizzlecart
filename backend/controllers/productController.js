@@ -31,7 +31,7 @@ module.exports.getOneProduct = async (req, res) => {
             error: false,
         })
     }catch(err){
-        res.status(500).json({
+        res.json({
             message: 'Bad Request',
             data: null,
             success: false,
