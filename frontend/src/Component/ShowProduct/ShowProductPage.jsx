@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from 'react'
+import { useParams } from 'react-router-dom'
 
 function ShowProductPage() {
 
-  const productId = useRef();
+
+  const { id } = useParams()
 
   useEffect(() => {
-    console.log(productId)
+    console.log(id)
   })
 
   return (
