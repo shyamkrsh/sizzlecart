@@ -2,7 +2,7 @@ import React from 'react'
 import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
-function ProductCard({image, title, price, offers, weight, deliveryBy}) {
+function ProductCard({pId, image, title, price, offers, weight, deliveryBy}) {
 
     const navigate = useNavigate();
     if (!localStorage.getItem('products')) {
