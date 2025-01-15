@@ -73,7 +73,7 @@ module.exports.login = async (req, res) => {
         const tokenOptions = {
             httpOnly: false,  
             secure: true,      
-            sameSite: 'lax', 
+            // sameSite: 'lax', 
             // path: '/',            
             // maxAge: '7d',  
         };
