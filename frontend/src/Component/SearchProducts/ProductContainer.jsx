@@ -16,12 +16,12 @@ function ProductContainer({ value }) {
 
     return (
         <div className='w-{100%} py-10'>
-            <div className='card-container w-[100%] px-[3%] md:px-[10%] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-12 place-items-center'>
+            <div className='card-container w-[100%] px-[3%] md:px-[10%] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5 mt-12 place-items-center'>
                 {
                     products?.map((product, index) => (
-                        value === '' ? <ProductCard key={index} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28 | ₹40Free"} />
+                        value === '' ? <ProductCard key={index} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28"} />
                             : product?.name?.toLowerCase().split(" ").some((word) => word?.includes(value?.toLowerCase().replaceAll(" ", "")))
-                                ? <ProductCard key={index} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28 | ₹40Free"} />
+                                ? <ProductCard key={index} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28"} />
                                 : ""
 
                     ))
