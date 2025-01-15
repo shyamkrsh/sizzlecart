@@ -36,7 +36,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
 app.get("/api/user-details", authToken, userDetailsController);
 app.use("/api/user", userRouter);
 app.use("/api/products", productRouter);
@@ -44,10 +43,6 @@ app.use("/api/products", productRouter);
 app.get("/demo", (req, res) => {
     res.send("Hello world");
 });
-
-
-
-
 
 
 app.listen(PORT, () => {
