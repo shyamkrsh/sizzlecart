@@ -22,7 +22,7 @@ function ProductCard({pId, image, title, price, offers, weight, deliveryBy}) {
         localStorage.setItem('products', JSON.stringify(prevItem));
     }
     return (
-            <div className='w-[100%] h-[23rem] cursor-pointer text-center overflow-hidden' style={{boxShadow: '-1px -1px 3px gray', borderRadius: '5px'}} onClick={() => navigate('/show-products')}>
+            <div className='w-[100%] h-[23rem] cursor-pointer text-center overflow-hidden' style={{boxShadow: '-1px -1px 3px gray', borderRadius: '5px'}} onClick={() => navigate('/show-product/:id')}>
                 <div className='w-100 h-[55%]'>
                     <img src={image} alt="" className='w-[100%] h-[100%]' />
                 </div>

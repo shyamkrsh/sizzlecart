@@ -51,7 +51,7 @@ function App() {
             <Route path='/wishlistPage' element={<WishlistPage />}></Route>
             <Route path='/profilePage' element={<ProfilePage />}></Route>
             <Route path='/search-products' element={<SearchProductsPage />}></Route>
-            <Route path='/show-products' element={<ShowProductPage />}></Route>
+            <Route path='/show-product/:id' element={<ShowProductPage />}></Route>
             
           </Routes>
           <Footer />
