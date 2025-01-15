@@ -6,15 +6,11 @@ const app = express();
 const PORT = 8080 || process.env.PORT;
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const Product = require('./models/Product');
-const TrendingProduct = require('./models/TrendingProduct');
-const BestProduct = require('./models/BestProduct');
 
 const userRouter = require('./routes/userRouter');
 const authToken = require('./middlewares/authToken');
 const userDetailsController = require('./controllers/userDetails');
 const productRouter = require('./routes/productRouter');
-
 
 let MONGO_URI = process.env.MONGO_URI;
 
@@ -28,7 +24,7 @@ main().then((res) => {
 })
 
 app.use(cors({
-    origin: "https://sizzlecart.vercel.app",
+    origin: ["http://localhost:5173/", "https://sizzlecart.vercel.app"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
 }));
@@ -44,5 +40,6 @@ app.get("/demo", (req, res) => {
     res.send("Hello world");
 });
 
-
-module.exports = app;
+app.listen(PORT, () => {
+    console.log(`App is listening to the port ${PORT}`);
+})
