@@ -37,7 +37,7 @@ const OtpInput = ({ length = 6, email }) => {
   // Render the OTP fields
   return (
     <form onSubmit={handleSubmit}>
-        <h1 className="text-slate-600 text-xl font-semibold mt-12 text-center text-green-500">OTP Sent to your mobile</h1>
+        <h1 className="text-xl font-semibold mt-12 text-center text-green-500">OTP Sent to your mobile</h1>
       <div className="flex  flex-col items-center justify-start mt-4 ">
         <Box display="flex" gap={1} width={"20rem"} >
           {otp.map((digit, index) => (
@@ -57,7 +57,7 @@ const OtpInput = ({ length = 6, email }) => {
         </Box>
 
         <div className='mt-8 text-center'>
-          <button className='text-white bg-amber-500 w-[10rem] py-3 text-xl hover:bg-amber-700 rounded-lg' type="submit">Continue</button>
+          <button className='text-white bg-amber-500 w-[10rem] py-3 text-xl hover:bg-amber-600 rounded-lg' type="submit">Continue</button>
         </div>
       </div>
     </form>
