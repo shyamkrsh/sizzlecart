@@ -20,7 +20,7 @@ module.exports.getAllProducts = async (req, res) => {
 
 module.exports.getOneProduct = async (req, res) => {
     try {
-        const { id } = req.body;
+        const { id } = req.params;
         const product = await Product.findById(id)
         if (!product) {
             throw new Error("Product does not exists");
