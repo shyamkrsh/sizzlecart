@@ -9,6 +9,9 @@ import { BsCart3 } from "react-icons/bs";
 import { FaRegUserCircle } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import Badge from '@mui/material/Badge';
+import { GoHeart } from "react-icons/go";
+import { GoHeartFill } from "react-icons/go";
+import { PiShareFatThin } from "react-icons/pi";
 
 function ShowProductPage() {
   const { id } = useParams();
@@ -17,6 +20,7 @@ function ShowProductPage() {
   const [displayImage, setDisplayImage] = useState(product?.thumbnail);
   const [showIndex, setShowIndex] = useState(0);
   const [productsCount, setProductsCount] = useState(0);
+  const [wish, setWish] = useState(false);
 
   useEffect(() => {
     setInterval(() => {
@@ -24,7 +28,6 @@ function ShowProductPage() {
       setProductsCount(products?.length);
     })
   }, []);
-
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/${id}`).then((res) => {
       setProduct(res?.data?.data);
@@ -41,15 +44,16 @@ function ShowProductPage() {
   return (
     <div className='pb-20'>
       <div className='flex items-center justify-between gap-5 w-full fixed top-0 left-0 z-50 bg-slate-50 h-14 px-5 shadow-md'>
-        <FaArrowLeftLong className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/")} />
+        <FaArrowLeftLong className='text-2xl text-slate-600 cursor-pointer' onClick={() => window.history.back()} />
         <div className='flex gap-5 items-center'>
           <CiSearch className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/search-products")} />
-          <Badge badgeContent={productsCount} color="error"  onClick={() => navigate("/cartPage")}>
+          <Badge badgeContent={productsCount} color="error" onClick={() => navigate("/cartPage")}>
             <BsCart3 className='text-2xl text-slate-600' />
           </Badge>
           <FaRegUserCircle className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/profilePage")} />
         </div>
       </div>
+
       <div className='w-[100%] px-3 flex items-center justify-start gap-2 border-b-2 py-1'>
         <div className='w-[20%] h-[7vh]'>
           <img src={product?.thumbnail} className='w-[100%] h-[100%]' />
@@ -59,21 +63,51 @@ function ShowProductPage() {
           <p className='text-slate-700' style={{ fontSize: '13px' }}>{product?.description?.slice(0, 35) + "..."}</p>
         </div>
       </div>
+
+
+
+
+
+
+
       <div className='w-[100%] h-[15rem] mt-1 grid place-content-center'>
-        <img src={displayImage} className='w-[95%] h-[13rem] rounded-md' />
+        <div className='w-[95%] h-[13rem] rounded-md mx-auto relative'>
+          <img src={displayImage} className='w-[100%] h-[100%] rounded-md ' />
+          <div className='absolute top-1 right-1' onClick={(e) => e.stopPropagation()}>
+            {
+              wish ? <div className='p-3 bg-slate-100 rounded-md'> <GoHeart className='text-4xl ' onClick={() => setWish(!wish)} /></div>
+                : <div className='p-3 bg-slate-100 rounded-md'><GoHeartFill className='text-4xl text-red-600' onClick={() => setWish(!wish)} /></div>
+            }
+
+            <div className='p-3 bg-slate-100 rounded-md mt-1'>
+
+            <PiShareFatThin className='text-4xl' />
+            </div>
+
+          </div>
+
+        </div>
       </div>
 
+
+
+
+
+
+
+
+
       <div className='w-[100%] flex items-center justify-center gap-3'>
-        <div className={showIndex == 0 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(0), setDisplayImage(product?.images[1]) }} >
+        <div className={showIndex == 0 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(0), setDisplayImage(product?.images[0]) }} >
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
-        <div className={showIndex == 1 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(1), setDisplayImage(product?.images[0]) }}>
+        <div className={showIndex == 1 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(1), setDisplayImage(product?.images[1]) }}>
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
-        <div className={showIndex == 2 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(2), setDisplayImage(product?.images[1]) }}>
+        <div className={showIndex == 2 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(2), setDisplayImage(product?.images[0]) }}>
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
-        <div className={showIndex == 3 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(3), setDisplayImage(product?.images[0]) }}>
+        <div className={showIndex == 3 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(3), setDisplayImage(product?.images[1]) }}>
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
       </div>
@@ -92,6 +126,11 @@ function ShowProductPage() {
           </p>
           <p className='text-slate-900 text-sm -mt-1'>{product?.description}</p>
         </div>
+      </div>
+
+      <div className='px-3 mt-3  border-slate-500 py-2' style={{ border: '1px solid gray' }}>
+        <p className='text-green-700 font-semibold'>Delivery by - <span className='text-black'>31 jan 2025</span></p>
+        <p>Patna - 800013</p>
       </div>
 
       <div className='review px-[5%] mt-10'>
