@@ -18,7 +18,6 @@ function ShowProductPage() {
     })
   }, [])
 
-
   return (
     <div className='pb-20'>
       <div className='flex items-center justify-start gap-5 w-full fixed top-0 left-0 z-50 bg-slate-50 h-14 px-5 shadow-md'>
