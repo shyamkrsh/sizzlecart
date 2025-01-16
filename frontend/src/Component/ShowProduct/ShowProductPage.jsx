@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import ReviewCard from './ReviewCard.jsx'
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
-import ReviewCard from './reviewCard';
 import { BsFillStarFill } from "react-icons/bs";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegUserCircle } from "react-icons/fa";
