@@ -53,16 +53,16 @@ function ShowProductPage() {
       </div>
 
       <div className='flex items-center justify-center'>
-        <div className={showIndex == 0 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setShowIndex() setDisplayImage(product?.images[1])}} >
+        <div className={showIndex == 0 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setShowIndex(0), setDisplayImage(product?.images[1])}} >
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
-        <div className={showIndex == 1 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setDisplayImage(product?.images[0])}}>
+        <div className={showIndex == 1 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setShowIndex(1), setDisplayImage(product?.images[0])}}>
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
-        <div className={showIndex == 2 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setDisplayImage(product?.images[1])}}>
+        <div className={showIndex == 2 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setShowIndex(2), setDisplayImage(product?.images[1])}}>
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
-        <div className={showIndex == 3 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setDisplayImage(product?.images[1])}}>
+        <div className={showIndex == 3 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setShowIndex(3), setDisplayImage(product?.images[1])}}>
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
       </div>
