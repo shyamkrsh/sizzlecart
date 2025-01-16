@@ -3,25 +3,41 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
-
+import ReviewCard from './reviewCard';
+import { BsFillStarFill } from "react-icons/bs";
+import { BsCart3 } from "react-icons/bs";
+import { FaRegUserCircle } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
 
 function ShowProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const navigate = useNavigate();
-
+  const [displayImage, setDisplayImage] = useState(product?.thumbnail);
+  const [showIndex, setShowIndex] = useState(0);
+  
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/${id}`).then((res) => {
       setProduct(res?.data?.data);
+      setDisplayImage(res?.data?.data?.images[0])
+      console.log(res.data.data)
     }).catch((err) => {
       console.log(err);
     })
   }, [])
 
+
+  let style = `flex flex-col items-center cursor-pointer shadow-lg p-2 bg-white rounded-lg m-3 w-[4rem] h-[4rem] mx-auto `
+  
   return (
     <div className='pb-20'>
       <div className='flex items-center justify-start gap-5 w-full fixed top-0 left-0 z-50 bg-slate-50 h-14 px-5 shadow-md'>
         <FaArrowLeftLong className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/")} />
+        <div className='flex gap-2 items-center'>
+          <CiSearch className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/")} />
+          <BsCart3 className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/")} />
+          <FaRegUserCircle className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/")} />
+        </div>
       </div>
       <div className='w-[100%] px-3 flex items-center justify-start gap-2 border-b-2 py-1'>
         <div className='w-[20%] h-[7vh]'>
@@ -33,18 +49,21 @@ function ShowProductPage() {
         </div>
       </div>
       <div className='w-[100%] h-[15rem] mt-1 grid place-content-center'>
-        <img src={product?.thumbnail} className='w-[95%] h-[13rem] rounded-md' />
+        <img src={displayImage} className='w-[95%] h-[13rem] rounded-md' />
       </div>
 
       <div className='flex items-center justify-center'>
-        <div className='flex flex-col items-center cursor-pointer shadow-lg p-2 bg-white rounded-lg m-3 w-[5rem] h-[5rem] mx-auto border-2 border-blue-300' >
-          <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[4rem] h-[3rem]' />
+        <div className={showIndex == 0 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setShowIndex() setDisplayImage(product?.images[1])}} >
+          <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
-        <div className='flex flex-col items-center cursor-pointer shadow-lg p-2 bg-white rounded-lg m-3 w-[5rem] h-[5rem] mx-auto'>
-          <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[4rem] h-[3rem]' />
+        <div className={showIndex == 1 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setDisplayImage(product?.images[0])}}>
+          <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
-        <div className='flex flex-col items-center cursor-pointer shadow-lg p-2 bg-white rounded-lg m-3 w-[5rem] h-[5rem] mx-auto'>
-          <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[4rem] h-[3rem]' />
+        <div className={showIndex == 2 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setDisplayImage(product?.images[1])}}>
+          <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
+        </div>
+        <div className={showIndex == 3 ? `${style} border-2 border-blue-300` :  `${style}`} onClick={() => {setDisplayImage(product?.images[1])}}>
+          <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
       </div>
 
@@ -54,53 +73,27 @@ function ShowProductPage() {
           <p className='text-slate-500 text-sm -mt-2'>Pure quality guranteed</p>
           <p className='text-slate-900 font-semibold -mt-2' style={{ fontSize: '1.2rem' }}>₹ {product?.price} / {product?.weight}</p>
           <p className='text-green-700 font-semibold -mt-2' style={{ fontSize: '1.1rem' }}>{product?.offers}</p>
-          <p className='text-green-700 text-sm font-semibold -mt-2'>⭐⭐⭐⭐</p>
+          <p className='text-green-700 text-sm font-semibold -mt-2 flex items-center gap-0.5'>
+            {Array.from({ length: product?.rating }, (_, index) => (
+              <BsFillStarFill key={index} />
+            ))
+            }
+          </p>
           <p className='text-slate-900 text-sm -mt-1'>{product?.deliveryBy}</p>
         </div>
       </div>
 
       <div className='review px-[5%] mt-10'>
         <h1 className='text-xl font-semibold py-3'>Reviews & Ratings</h1>
+
+
         <div>
-          <div className='flex items-center justify-start gap-2 w-[100%]'>
-            <img src="https://i.ibb.co/Zm6qmB9/user.png" className='w-[10%]' />
-            <h1 className='text-xl font-semibold'>sharmashyam717</h1>
-          </div>
-          <div className='mt-2'>
-            <p>⭐⭐⭐⭐⭐</p>
-            <p className='text-slate-700'>This very tasty spice i love it.</p>
-          </div>
+
+          <ReviewCard image={"https://i.ibb.co/Zm6qmB9/user.png"} username={"shashisharma"} ratings={4} content={"This very tasty spice i love it."} />
+          <ReviewCard image={"https://i.ibb.co/Zm6qmB9/user.png"} username={"shashisharma"} ratings={4} content={"This very tasty spice i love it."} />
+
         </div>
-        <div>
-          <div className='flex items-center justify-start gap-2 w-[100%]'>
-            <img src="https://i.ibb.co/Zm6qmB9/user.png" className='w-[10%]' />
-            <h1 className='text-xl font-semibold'>sharmashyam717</h1>
-          </div>
-          <div className='mt-2'>
-            <p>⭐⭐⭐⭐⭐</p>
-            <p className='text-slate-700'>This very tasty spice i love it.</p>
-          </div>
-        </div>
-        <div>
-          <div className='flex items-center justify-start gap-2 w-[100%]'>
-            <img src="https://i.ibb.co/Zm6qmB9/user.png" className='w-[10%]' />
-            <h1 className='text-xl font-semibold'>sharmashyam717</h1>
-          </div>
-          <div className='mt-2'>
-            <p>⭐⭐⭐⭐⭐</p>
-            <p className='text-slate-700'>This very tasty spice i love it.</p>
-          </div>
-        </div>
-        <div>
-          <div className='flex items-center justify-start gap-2 w-[100%]'>
-            <img src="https://i.ibb.co/Zm6qmB9/user.png" className='w-[10%]' />
-            <h1 className='text-xl font-semibold'>sharmashyam717</h1>
-          </div>
-          <div className='mt-2'>
-            <p>⭐⭐⭐⭐⭐</p>
-            <p className='text-slate-700'>This very tasty spice i love it.</p>
-          </div>
-        </div>
+
       </div>
 
     </div >

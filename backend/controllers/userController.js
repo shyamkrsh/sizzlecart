@@ -76,7 +76,6 @@ module.exports.login = async (req, res) => {
             sameSite: 'None',
             maxAge: '7d'      
         };
-
         res.cookie("token", token, tokenOptions);
         res.status(200).json({
             message: "Login successful",
