@@ -63,7 +63,7 @@ function ShowProductPage() {
         <img src={displayImage} className='w-[95%] h-[13rem] rounded-md' />
       </div>
 
-      <div className='w-[100%] flex items-center justify-center gap-3'>
+      {/* <div className='w-[100%] flex items-center justify-center gap-3'>
         <div className={showIndex == 0 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(0), setDisplayImage(product?.images[1]) }} >
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
@@ -76,7 +76,7 @@ function ShowProductPage() {
         <div className={showIndex == 3 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(3), setDisplayImage(product?.images[0]) }}>
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
-      </div>
+      </div> */}
 
       <div>
         <div className='w-100 h-[40%] flex flex-col gap-2 text-left ps-3 mt-5'>
