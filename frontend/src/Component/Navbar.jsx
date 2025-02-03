@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Badge from '@mui/material/Badge';
 import { BsCart3 } from "react-icons/bs";
-import { FaRegUserCircle } from "react-icons/fa";
-import { IoIosMenu } from "react-icons/io";
+import { LiaUserCircle } from "react-icons/lia";
+import { FiMenu } from "react-icons/fi";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import { IoHomeOutline } from "react-icons/io5";
@@ -26,7 +26,7 @@ import Slide from '@mui/material/Slide';
 import OtpInput from './Auth/OtpInput';
 import { MdEmail } from "react-icons/md";
 import axios from 'axios';
-import { IoSearch } from "react-icons/io5";
+import { SlLocationPin } from "react-icons/sl";
 import { FaLocationDot } from "react-icons/fa6";
 import { useSelector } from 'react-redux';
 
@@ -116,45 +116,35 @@ function Navbar() {
 
 
     return (
-        <nav className='w-[100%] md:sticky md:top-0   z-50 bg-slate-50 '>
+        <nav className='w-[100%] sticky top-0   z-50 bg-white h-[3.8rem] flex items-center' style={{ boxShadow: '-2px 0px 5px gray' }}>
             <div className='z-50 flex w-[100%] h-14 justify-between items-center px-5'>
-                <div className='md:hidden'>
-                    <IoIosMenu onClick={toggleDrawer(true)} className='text-4xl font-semibold' />
-                    <Drawer open={open} onClose={toggleDrawer(false)}>
-                        {DrawerList}
-                    </Drawer>
-                </div>
-                <div onClick={() => navigate("/")} className='cursor-pointer '>
-                    <h1 className='font-sans text-2xl font-bold ' style={{ background: 'linear-gradient(to bottom, #4aa832 50%, #f28d0a 50%)', color: 'transparent', backgroundClip: 'text', letterSpacing: '1px', textTransform: 'uppercase' }}>Sizzle Cart</h1>
-                </div>
-                <div className='w-[40%] hidden md:block'>
-                    <div className='w-[100%] h-[3rem] flex items-center justify-center bg-white rounded-md ps-2 border-2'>
-                        <IoSearch className='text-2xl text-slate-700' />
-                        <input type="text"
-                            placeholder='search products, spices'
-                            className='w-[100%] h-[2.5rem] px-2 rounded-md outline-none text-slate-600 font-semibold'
-                        />
+                <div className='flex items-center gap-2'>
+                    <div className=''>
+                        <FiMenu onClick={toggleDrawer(true)} className='text-2xl hover:text-cyan-500 cursor-pointer' />
+                        <Drawer open={open} onClose={toggleDrawer(false)}>
+                            {DrawerList}
+                        </Drawer>
+                    </div>
+                    <div onClick={() => navigate("/")} className='cursor-pointer '>
+                        <img src="https://i.ibb.co/5XnRZMpR/logo.png" alt="" className='w-[3.5rem] h-[2.5rem]' />
+                    </div>
+                    <div className='flex items-center gap-1'>
+                        <SlLocationPin className=''/>
+                        <p className='text-sm font-semibold font-sans text-slate-700'>Patna, bihar</p>
                     </div>
                 </div>
                 <div>
                     <ul className='flex gap-8'>
-                        <div className='gap-8 hidden lg:flex'>
-                            <li className={'text-white'} ><div className='flex items-center justify-center gap-2  text-white'>
-                                <FaLocationDot />
-                                <p>{address}</p>
-                            </div></li>
-                            <li className={'text-black'} ><Link to={"/offers"}>Offers</Link></li>
-                        </div>
-                        <div className='flex gap-8'>
+                        <div className='flex gap-5'>
                             <li className=''>
                                 <Link to={"/cartPage"}>
                                     <Badge badgeContent={products} color="error" >
-                                        <BsCart3 className='text-2xl text-slate-600' />
+                                        <BsCart3 className='text-2xl hover:text-cyan-500 cursor-pointer' />
                                     </Badge>
                                 </Link>
                             </li>
                             <li className=''>
-                                <FaRegUserCircle className='text-3xl text-slate-600' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
+                                <LiaUserCircle className='text-3xl hover:text-cyan-500 cursor-pointer' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
                             </li>
                             <React.Fragment>
                                 <Dialog
@@ -166,7 +156,7 @@ function Navbar() {
                                     <AppBar sx={{ position: 'relative', backgroundColor: 'rgb(248, 250, 252)', boxShadow: '0px 0px 1px gray' }}>
                                         <Toolbar>
                                             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                                            <h1 className='text-slate-600' style={{fontSize: '1.2rem', fontWeight: '700'}}>Login to your Account</h1>
+                                                <h1 className='text-slate-600' style={{ fontSize: '1.2rem', fontWeight: '700' }}>Login to your Account</h1>
                                             </Typography>
                                             <IconButton
                                                 edge="start"
@@ -178,7 +168,7 @@ function Navbar() {
                                             </IconButton>
                                         </Toolbar>
                                     </AppBar>
-                                   
+
                                     <form onSubmit={handleSubmit}>
                                         <div className={showOtp ? 'hidden' : 'text-center mt-10'}>
                                             <p className='text-slate-500 mb-5'>Enter your phone number to Email</p>

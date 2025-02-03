@@ -25,8 +25,8 @@ function Blogs() {
         },
     ]
     return (
-        <div className='bg-slate-100 py-12 '>
-            <h1 className='text-2xl md:text-4xl ps-5 md:text-center mt-5'>𝐌𝐨𝐬𝐭 𝐑𝐞𝐚𝐝𝐚𝐛𝐥𝐞 𝐁𝐥𝐨𝐠𝐬</h1>
+        <div className=' py-12 '>
+            <h1 className='text-2xl md:text-4xl ps-5 md:text-center mt-5 font-semibold text-slate-800'>Most Readable Blogs</h1>
 
             <div className="card-container md:px-[10%] mt-12 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center">
                 

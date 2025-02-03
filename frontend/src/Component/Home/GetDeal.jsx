@@ -2,7 +2,7 @@ import React from 'react'
 
 function GetDeal() {
     return (
-        <div className='bg-slate-100 relative mt-1'>
+        <div className='bg-slate-100 relative '>
             <div className='h-[20rem] w-[100%]'>
                 <img src="https://i.ibb.co/0cZwRgh/midbg.jpg" alt="" className='h-[100%] w-[100%]' />
             </div>

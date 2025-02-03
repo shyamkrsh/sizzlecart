@@ -11,9 +11,9 @@ function TrendingProducts() {
     }, [])
 
     return (
-        <div className='mt-2 bg-white pt-3 w-[100%] h-[27rem] px-[3%]'>
-            <h1 className='text-2xl md:text-4xl ps-4 md:ps-0 md:text-center '>𝐓𝐫𝐞𝐧𝐝𝐢𝐧𝐠 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐬</h1>
-            <div className='mt-1  flex items-center overflow-y-hidden overflow-x-scroll  w-[100%] h-[80%] cards-container'>
+        <div className='pt-1 w-[100%] h-[20rem] px-[3%] '>
+            <h1 className='text-2xl md:text-4xl ps-4 md:ps-0 md:text-center font-semibold text-slate-900'>Trending Products</h1>
+            <div className='mt-1  flex items-center overflow-y-hidden overflow-x-scroll  w-[100%] h-[16rem] cards-container'>
                 {
                     products?.map((product, index) => (
                         <div>

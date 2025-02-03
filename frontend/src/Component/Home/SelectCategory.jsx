@@ -3,15 +3,13 @@ import CategoryCard from './CategoryCard'
 
 function SelectCategory() {
     return (
-        <div className='w-[100%] flex overflow-hidden flex-wrap flex-center items-center px-3'>
-            <CategoryCard />
-            <CategoryCard />
-            <CategoryCard />
-            <CategoryCard />
-            <CategoryCard />
-            <CategoryCard />
-            <CategoryCard />
-            <CategoryCard />
+        <div className='category w-[100%] flex justify-start gap-1 ps-3 md:ps-5 overflow-x-auto overflow-y-hidden'>
+            <CategoryCard image={"https://i.ibb.co/k63DrGD6/chili.png"} title={"Chili"} link={"/"}/>
+            <CategoryCard image={"https://i.ibb.co/j9RxZsw2/turmeric.png"} title={"Turmeric"} link={"/"}/>
+            <CategoryCard image={"https://i.ibb.co/0R5Fdq5b/garlic.png"} title={"Garlic"} link={"/"}/>
+            <CategoryCard image={"https://i.ibb.co/HD3KRJ3v/cardamom.png"} title={"Cardamom"} link={"/"}/>
+            <CategoryCard image={"https://i.ibb.co/rfxvSkyz/coriander.png"} title={"Coriander"} link={"/"}/>
+            <CategoryCard image={"https://i.ibb.co/XZLrNHTr/cloves.png"} title={"Cloves"} link={"/"}/>
         </div>
     )
 }

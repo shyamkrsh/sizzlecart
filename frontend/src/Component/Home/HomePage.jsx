@@ -11,11 +11,10 @@ import SelectCategory from './SelectCategory'
 function HomePage() {
   return (
     <>
-      <div className=''>
-        <Location/>
+      <div className='bg-cyan-100'>
         <Search />
-        <Intro />
         <SelectCategory/>
+        <Intro />
         <TrendingProducts />
         <BestProducts />
         <GetDeal />

@@ -11,9 +11,9 @@ function BestProducts() {
     }, [])
 
     return (
-        <div className='mt-2 bg-white w-[100%] h-[30rem] px-[3%]'>
-            <h1 className='text-2xl md:text-4xl ps-4 md:ps-0 md:text-center '>𝐓𝐫𝐞𝐧𝐝𝐢𝐧𝐠 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐬</h1>
-            <div className='mt-1  flex items-center overflow-y-hidden overflow-x-scroll  w-[100%] h-[80%] cards-container'>
+        <div className=' w-[100%] h-[20rem] px-[3%] '>
+            <h1 className='text-2xl md:text-4xl ps-4 md:ps-0 md:text-center font-semibold text-slate-900'>Best Products</h1>
+            <div className='mt-1  flex items-center overflow-y-hidden overflow-x-scroll  w-[100%] h-[16rem] cards-container '>
                 {
                     products?.map((product, index) => (
                         <div>

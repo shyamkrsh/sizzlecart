@@ -54,7 +54,7 @@ function App() {
             <Route path='/show-product/:id' element={<ShowProductPage />}></Route>
             
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </BrowserRouter>
       </Context.Provider>
 
