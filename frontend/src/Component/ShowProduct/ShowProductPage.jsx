@@ -28,11 +28,11 @@ function ShowProductPage() {
       setProductsCount(products?.length);
     })
   }, []);
+  
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/${id}`).then((res) => {
       setProduct(res?.data?.data);
       setDisplayImage(res?.data?.data?.images[0])
-      console.log(res.data.data)
     }).catch((err) => {
       console.log(err);
     })
@@ -85,16 +85,16 @@ function ShowProductPage() {
 
       <div className='w-[100%] flex items-center justify-center gap-3 mt-1'>
         <div className={showIndex == 0 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(0), setDisplayImage(product?.images[0]) }} >
-          <img src={product?.images[0]} alt="" className='w-[3rem] h-[3rem]' />
+          <img src={"https://i.ibb.co/k6dZwJr/img1.jpg"} alt="" className='w-[3rem] h-[3rem]' />
         </div>
         <div className={showIndex == 1 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(1), setDisplayImage(product?.images[1]) }}>
-          <img src={product?.images[1]} alt="" className='w-[3rem] h-[3rem]' />
+          <img src={"https://i.ibb.co/vzGRT5b/img2.jpg"} alt="" className='w-[3rem] h-[3rem]' />
         </div>
         <div className={showIndex == 2 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(2), setDisplayImage(product?.images[0]) }}>
-          <img src={product?.images[0]} alt="" className='w-[3rem] h-[3rem]' />
+          <img src={"https://i.ibb.co/k6dZwJr/img1.jpg"} alt="" className='w-[3rem] h-[3rem]' />
         </div>
         <div className={showIndex == 3 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(3), setDisplayImage(product?.images[1]) }}>
-          <img src={product?.images[1]} alt="" className='w-[3rem] h-[3rem]' />
+          <img src={"https://i.ibb.co/vzGRT5b/img2.jpg"} alt="" className='w-[3rem] h-[3rem]' />
         </div>
       </div>
 
