@@ -42,9 +42,9 @@ function ShowProductPage() {
   let style = `flex flex-col items-center cursor-pointer shadow-lg p-2 bg-white rounded-lg w-[4rem] h-[4rem]`
 
   return (
-    <div className='pb-20'>
+    <div className='pb-20 bg-cyan-100'>
       <div className='flex items-center justify-between gap-5 w-full fixed top-0 left-0 z-50 bg-white h-[3.8rem] px-5 shadow-md'>
-        <FaArrowLeftLong className='text-2xl text-slate-600 cursor-pointer' onClick={() => window.history.back()} />
+        <FaArrowLeftLong className='text-xl text-slate-900 cursor-pointer' onClick={() => window.history.back()} />
         <div className='flex gap-5 items-center'>
           <CiSearch className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/search-products")} />
           <Badge badgeContent={productsCount} color="error" onClick={() => navigate("/cartPage")}>
@@ -54,19 +54,19 @@ function ShowProductPage() {
         </div>
       </div>
 
-      <div className='w-[100%] px-3 flex items-center justify-start gap-2 border-b-2'>
-        <div className='w-[4rem] h-[4rem]'>
+      <div className='w-[100%] px-3 flex items-center justify-start gap-2 border-b-2 py-1'>
+        <div className='w-[5rem] h-[5rem]'>
           <img src={product?.thumbnail} className='w-[100%] h-[100%]' />
         </div>
         <div>
-          <h1 className='text-slate-700 font-semibold'>{product?.name}</h1>
+          <h1 className='text-xl text-slate-700 font-semibold'>{product?.name}</h1>
           <p className='text-slate-700' style={{ fontSize: '13px' }}>{product?.description?.slice(0, 35) + "..."}</p>
         </div>
       </div>
 
       <div className='w-[100%] h-[15rem] mt-1 grid place-content-center'>
-        <div className='w-[95%] h-[13rem] rounded-md mx-auto relative'>
-          <img src={displayImage} className='w-[100%] h-[100%] rounded-md ' />
+        <div className='w-[95vw] h-[15rem] rounded-md mx-auto relative'>
+          <img src={displayImage} className='w-[100%] h-[15rem] rounded-md ' />
           <div className='absolute top-1 right-1' onClick={(e) => e.stopPropagation()}>
             {
               wish ? <div className='p-3 bg-slate-100 rounded-md'> <GoHeart className='text-4xl ' onClick={() => setWish(!wish)} /></div>
@@ -74,10 +74,8 @@ function ShowProductPage() {
             }
 
             <div className='p-3 bg-slate-100 rounded-md mt-1'>
-
               <PiShareFatThin className='text-4xl' />
             </div>
-
           </div>
 
         </div>
@@ -85,13 +83,7 @@ function ShowProductPage() {
 
 
 
-
-
-
-
-
-
-      <div className='w-[100%] flex items-center justify-center gap-3'>
+      <div className='w-[100%] flex items-center justify-center gap-3 mt-1'>
         <div className={showIndex == 0 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(0), setDisplayImage(product?.images[0]) }} >
           <img src="https://i.ibb.co/k6dZwJr/img1.jpg" alt="" className='w-[3rem] h-[3rem]' />
         </div>
