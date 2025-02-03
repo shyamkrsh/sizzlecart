@@ -8,13 +8,13 @@ function ProductInfo({ image, title, price, offers, deliveryBy }) {
 
 
     return (
-        <div className='bg-white flex flex-col border-b-2 my-5 px-10 shadow-md py-5'>
+        <div className='bg-white flex flex-col  my-2 px-10 py-2'>
             <div className='flex justify-between '>
-                <div>
-                    <img src={image} alt="" className='w-[5rem] h-[5rem] md:w-[10rem] md:h-[10rem]' />
+                <div className='w-[7rem] h-[7rem] md:w-[8rem] md:h-[8rem]'>
+                    <img src={image} alt="" className='w-[100%] h-[100%]' />
                 </div>
                 <div>
-                    <h2 className='text-xl font-semibold'>{title}</h2>
+                    <h2 className='text-xl'>{title}</h2>
                     <p className='mb-5'>Weight : 5 Kg.</p>
                     <p className='flex'>
                         <p>₹ {price} &nbsp;&nbsp;&nbsp; </p>
@@ -23,7 +23,7 @@ function ProductInfo({ image, title, price, offers, deliveryBy }) {
                 </div>
                 <div className='hidden md:block'>{deliveryBy}</div>
             </div>
-            <div className='flex flex-col md:flex-row justify-start md:gap-12 items-center'>
+            <div className='flex justify-start gap-12 items-center'>
                 <div className='flex items-center py-5 gap-3'>
                     <div>
                         <CiCircleMinus className='text-3xl font-semibold text-slate-500 cursor-pointer' />
@@ -36,8 +36,8 @@ function ProductInfo({ image, title, price, offers, deliveryBy }) {
                     </div>
                 </div>
                 <div className='flex gap-5 items-center'>
-                    <button className='text-[1.1rem] font-semibold hover:text-blue-800'>SAVE FOR LATER</button>
-                    <button className='text-[1.1rem] font-semibold hover:text-blue-800'>REMOVE</button>
+                    <button className='text-x font-semibold hover:text-blue-800'>SAVE FOR LATER</button>
+                    <button className='text-x font-semibold hover:text-blue-800'>REMOVE</button>
                 </div>
             </div>
         </div>
