@@ -4,6 +4,7 @@ import { BsCart3 } from "react-icons/bs";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import Badge from '@mui/material/Badge';
+import { LiaUserCircle } from "react-icons/lia";
 
 function Searchbar({ setValue, value }) {
 
@@ -22,14 +23,14 @@ function Searchbar({ setValue, value }) {
     }
 
     return (
-        <div className='flex items-center justify-between gap-5 w-full fixed top-0 left-0 z-50 bg-slate-50 h-14 px-5 shadow-md border-2'>
-            <FaArrowLeftLong className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/")} />
-            <input type="text" placeholder='Search for products...' className='bg-transparent text-slate-800 outline-none h-full w-[70%]' value={value} onChange={handleChange} style={{ fontSize: '1.2rem' }} />
+        <div className='flex items-center justify-between gap-5 w-full fixed top-0 left-0 z-50 bg-white h-[3.8rem] px-5' >
+            <FaArrowLeftLong className='text-xl text-slate-900 cursor-pointer' onClick={() => navigate("/")} />
+            <input type="text" placeholder='Search for products...' className='bg-transparent text-slate-800 text-sm outline-none h-full w-[70%]' value={value} onChange={handleChange} style={{ fontSize: '1.2rem' }} />
             <div className='flex gap-5 items-center'>
                 <Badge badgeContent={productsCount} color="error" >
                     <BsCart3 className='text-2xl text-slate-600' />
                 </Badge>
-                <FaRegUserCircle className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/user-profile")} />
+                <LiaUserCircle className='text-3xl text-slate-600 cursor-pointer' onClick={() => navigate("/user-profile")} />
             </div>
         </div>
     )
