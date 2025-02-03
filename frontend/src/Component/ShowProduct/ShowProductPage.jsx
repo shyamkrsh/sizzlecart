@@ -43,7 +43,7 @@ function ShowProductPage() {
 
   return (
     <div className='pb-20'>
-      <div className='flex items-center justify-between gap-5 w-full fixed top-0 left-0 z-50 bg-slate-50 h-14 px-5 shadow-md'>
+      <div className='flex items-center justify-between gap-5 w-full fixed top-0 left-0 z-50 bg-white h-[3.8rem] px-5 shadow-md'>
         <FaArrowLeftLong className='text-2xl text-slate-600 cursor-pointer' onClick={() => window.history.back()} />
         <div className='flex gap-5 items-center'>
           <CiSearch className='text-2xl text-slate-600 cursor-pointer' onClick={() => navigate("/search-products")} />
@@ -54,21 +54,15 @@ function ShowProductPage() {
         </div>
       </div>
 
-      <div className='w-[100%] px-3 flex items-center justify-start gap-2 border-b-2 py-1'>
-        <div className='w-[20%] h-[7vh]'>
+      <div className='w-[100%] px-3 flex items-center justify-start gap-2 border-b-2'>
+        <div className='w-[4rem] h-[4rem]'>
           <img src={product?.thumbnail} className='w-[100%] h-[100%]' />
         </div>
         <div>
-          <h1 className='text-xl text-slate-700 font-semibold'>{product?.name}</h1>
+          <h1 className='text-slate-700 font-semibold'>{product?.name}</h1>
           <p className='text-slate-700' style={{ fontSize: '13px' }}>{product?.description?.slice(0, 35) + "..."}</p>
         </div>
       </div>
-
-
-
-
-
-
 
       <div className='w-[100%] h-[15rem] mt-1 grid place-content-center'>
         <div className='w-[95%] h-[13rem] rounded-md mx-auto relative'>
@@ -81,7 +75,7 @@ function ShowProductPage() {
 
             <div className='p-3 bg-slate-100 rounded-md mt-1'>
 
-            <PiShareFatThin className='text-4xl' />
+              <PiShareFatThin className='text-4xl' />
             </div>
 
           </div>
