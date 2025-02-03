@@ -69,8 +69,8 @@ function ShowProductPage() {
           <img src={displayImage} className='w-[100%] h-[15rem] rounded-md ' />
           <div className='absolute top-1 right-1' onClick={(e) => e.stopPropagation()}>
             {
-              wish ? <div className='p-3 bg-slate-100 rounded-md'> <GoHeart className='text-4xl ' onClick={() => setWish(!wish)} /></div>
-                : <div className='p-3 bg-slate-100 rounded-md'><GoHeartFill className='text-4xl text-red-600' onClick={() => setWish(!wish)} /></div>
+              wish ? <div className='p-3 bg-slate-100 rounded-md cursor-pointer'> <GoHeart className='text-4xl ' onClick={() => setWish(!wish)} /></div>
+                : <div className='p-3 bg-slate-100 rounded-md cursor-pointer'><GoHeartFill className='text-4xl text-red-600' onClick={() => setWish(!wish)} /></div>
             }
 
             <div className='p-3 bg-slate-100 rounded-md mt-1'>
