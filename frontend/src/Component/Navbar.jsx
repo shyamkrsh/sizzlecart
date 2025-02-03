@@ -152,8 +152,9 @@ function Navbar() {
                                     open={open2}
                                     onClose={handleClose}
                                     TransitionComponent={Transition}
+                                    
                                 >
-                                    <AppBar sx={{ position: 'relative', backgroundColor: 'rgb(248, 250, 252)', boxShadow: '0px 0px 1px gray' }}>
+                                    <AppBar sx={{ position: 'relative', backgroundColor: '#fff', boxShadow: '-2px 0px 5px gray' }}>
                                         <Toolbar>
                                             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
                                                 <h1 className='text-slate-600' style={{ fontSize: '1.2rem', fontWeight: '700' }}>Login to your Account</h1>
@@ -169,8 +170,8 @@ function Navbar() {
                                         </Toolbar>
                                     </AppBar>
 
-                                    <form onSubmit={handleSubmit}>
-                                        <div className={showOtp ? 'hidden' : 'text-center mt-10'}>
+                                    <form onSubmit={handleSubmit} className='bg-cyan-100 h-[100%]'>
+                                        <div className={showOtp ? 'hidden' : 'text-center mt-10 '}>
                                             <p className='text-slate-500 mb-5'>Enter your phone number to Email</p>
                                             <div>
                                                 <TextField
@@ -192,7 +193,7 @@ function Navbar() {
                                         </div>
 
                                         <div className={showOtp ? 'hidden' : 'block  text-center'}>
-                                            <button className='text-white bg-amber-500 w-[10rem] py-3 text-xl hover:bg-amber-600 rounded-lg' type='submit'>Continue</button>
+                                            <button className='text-white shadow-md bg-amber-500 w-[10rem] py-1.5 hover:bg-amber-600 rounded-lg' type='submit'>Continue</button>
                                         </div>
                                     </form>
                                     <div className={showOtp ? 'justify-center items-center' : 'hidden'}>
