@@ -44,20 +44,16 @@ module.exports.getOneProduct = async (req, res) => {
 module.exports.getCartProducts = async (req, res) => {
     const items = req.body.data;
     try {
-        const itemIds = items.map(item => item.product_id);       
-        let products = await Product.find({ _id: {$in : itemIds}});
-        if(products.length == 0){
-            products = await TrendingProduct.find({ _id: {$in : itemIds}})
-            if(products.length == 0){
-                products = await Product.find({ _id: {$in : itemIds}});
-                if(products.length == 0){
-                    throw new Error("Products not available in cart");
-                }
-            }
-        }
+        const itemIds = items.map(item => item.product_id); 
+        const [products, trendingProducts, bestProducts] = await Promise.all([
+            Product.find({ _id: { $in: itemIds } }),
+            TrendingProduct.find({ _id: { $in: itemIds } }),
+            BestProduct.find({ _id: { $in: itemIds } })
+        ]);
+        const allProducts = [...products, ...trendingProducts, ...bestProducts];
         res.status(200).json({
             message: 'Sending data...',
-            data: products,
+            data: allProducts,
             success: true,
             error: false,
         })
