@@ -16,7 +16,7 @@ function TrendingProducts() {
                 {
                     products?.map((product, index) => (
                         <div>
-                            <Product key={index} productId={product?._id} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28 | ₹40Free"} />
+                            <Product key={product?._id || index} productId={product?._id} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28 | ₹40Free"} />
                         </div>
                     ))
                 }

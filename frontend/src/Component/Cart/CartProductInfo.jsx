@@ -34,7 +34,7 @@ function CartProductInfo() {
                 {
                     products?.map((item, index) => (
                         
-                        <ProductInfo key={index} productId={item?._id} image={item?.thumbnail} title={item?.name} price={item?.price} offers={item?.discount} deliveryBy={"Today"} />
+                        <ProductInfo key={item?._id} productId={item?._id} image={item?.thumbnail} title={item?.name} price={item?.price} offers={item?.discount} deliveryBy={"Today"} />
                     ))
                 }
 
