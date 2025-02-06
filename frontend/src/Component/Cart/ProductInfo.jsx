@@ -31,7 +31,7 @@ function ProductInfo({productId, image, title, price, offers, deliveryBy }) {
                 <div className='hidden md:block'>{deliveryBy}</div>
             </div>
             <div className='flex justify-start gap-12 items-center'>
-                <div className='flex items-center py-5 gap-3'>
+                <div className='flex items-center py-5 gap-3' onClick={(e) => e.stopPropagation()}>
                     <div>
                         <CiCircleMinus className='text-3xl font-semibold text-slate-500 cursor-pointer' />
                     </div>
@@ -42,7 +42,7 @@ function ProductInfo({productId, image, title, price, offers, deliveryBy }) {
                         <CiCirclePlus className='text-3xl font-semibold text-slate-500 cursor-pointer' />
                     </div>
                 </div>
-                <div className='flex gap-5 items-center'>
+                <div className='flex gap-5 items-center'  onClick={(e) => e.stopPropagation()}>
                     <button className='text-x font-semibold hover:text-blue-800' onClick={() => removeItem(productId)}>REMOVE</button>
                 </div>
             </div>

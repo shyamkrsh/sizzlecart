@@ -28,7 +28,7 @@ function ShowProductPage() {
       setProductsCount(products?.length);
     })
   }, []);
-  
+
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/${id}`).then((res) => {
       setProduct(res?.data?.data);
@@ -64,6 +64,7 @@ function ShowProductPage() {
         </div>
       </div>
 
+      {/* Display product's image */}
       <div className='w-[100%] h-[15rem] mt-1 grid place-content-center'>
         <div className='w-[95vw] h-[15rem] rounded-md mx-auto relative'>
           <img src={displayImage} className='w-[100%] h-[15rem] rounded-md ' />
@@ -81,7 +82,7 @@ function ShowProductPage() {
         </div>
       </div>
 
-
+      {/* Change images on click */}
       <div className='w-[100%] flex items-center justify-center gap-3 mt-1'>
         <div className={showIndex == 0 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(0), setDisplayImage(product?.images[0]) }} >
           <img src={"https://i.ibb.co/k6dZwJr/img1.jpg"} alt="" className='w-[3rem] h-[3rem]' />
@@ -97,6 +98,7 @@ function ShowProductPage() {
         </div>
       </div>
 
+      {/* product details */}
       <div>
         <div className='w-100 h-[40%] flex flex-col gap-2 text-left ps-3 mt-5'>
           <h2 className='mt-1 font-semibold' style={{ fontSize: '1.1rem' }}>{product?.name}</h2>
@@ -113,11 +115,13 @@ function ShowProductPage() {
         </div>
       </div>
 
+      {/* Delivery details */}
       <div className='px-3 mt-3  border-slate-500 py-2' style={{ border: '1px solid gray' }}>
         <p className='text-green-700 font-semibold'>Delivery by - <span className='text-black'>31 jan 2025</span></p>
         <p>Patna - 800013</p>
       </div>
 
+      {/* Review & ratings */}
       <div className='review px-[5%] mt-10'>
         <h1 className='text-xl font-semibold py-3 text-black'>Reviews & Ratings</h1>
         <div>
@@ -125,6 +129,15 @@ function ShowProductPage() {
           <ReviewCard image={"https://i.ibb.co/Zm6qmB9/user.png"} username={"shashisharma"} ratings={4} content={"This very tasty spice i love it."} />
         </div>
       </div>
+
+
+      {/* Buy button or add to cart button */}
+      <div className='w-[100%] h-[3.5rem]  fixed bottom-0 bg-yellow-700 flex justify-between' style={{ boxShadow: '1px 0px 8px gray' }}>
+        <div className='w-[50%] bg-white grid place-content-center '><p className='font-semibold'>Add to cart</p></div>
+        <div className='w-[50%] bg-yellow-500 grid place-content-center'><p className='font-semibold'>But now</p></div>
+      </div>
+
+
     </div >
   )
 }
