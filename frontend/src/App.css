@@ -1,25 +1,26 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body::-webkit-scrollbar{
-    display: none;
-}
-input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-      display: none;
-      margin: 0;
-  }
-
-  .cards-container::-webkit-scrollbar{
-    display: none;
-  }
-
-.category::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
 }
-body{
+.cards-container::-webkit-scrollbar{
+  display: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  display: none;
+  margin: 0;
+}
+
+.category::-webkit-scrollbar {
+  display: none;
+}
+
+body {
   background-color: #CFFAFE;
 }
