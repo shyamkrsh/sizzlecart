@@ -4,13 +4,11 @@ import { CiCircleMinus } from "react-icons/ci";
 
 function ProductInfo({productId, image, title, price, offers, deliveryBy }) {
 
-    const addItem = (pId) => {
+    const removeItem = (pId) => {
         let prevItem = JSON.parse(localStorage.getItem('products')) || [];
-        let item = {
-            product_id: productId,
-        };
-        prevItem.push(item);
-        localStorage.setItem('products', JSON.stringify(prevItem));
+        let items = prevItem.filter(item => item.product_id != pId);
+        localStorage.setItem('products', JSON.stringify(items));
+        location.href = "/cartPage"
     }
 
     return (
@@ -23,7 +21,7 @@ function ProductInfo({productId, image, title, price, offers, deliveryBy }) {
                     <h2 className='text-xl'>{title}</h2>
                     <p className='mb-5'>Weight : 5 Kg.</p>
                     <p className='flex'>
-                        <p>₹ {price} &nbsp;&nbsp;&nbsp; </p>
+                        <p className='font-semibold'>₹ {price} &nbsp;&nbsp;&nbsp; </p>
                         <p className='text-green-700 text-xl font-semibold'>{offers + " % OFF"} </p>
                     </p>
                 </div>
@@ -42,7 +40,7 @@ function ProductInfo({productId, image, title, price, offers, deliveryBy }) {
                     </div>
                 </div>
                 <div className='flex gap-5 items-center'>
-                    <button className='text-x font-semibold hover:text-blue-800'>REMOVE</button>
+                    <button className='text-x font-semibold hover:text-blue-800' onClick={() => removeItem(productId)}>REMOVE</button>
                 </div>
             </div>
         </div>

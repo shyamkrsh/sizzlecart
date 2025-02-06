@@ -46,14 +46,13 @@ function Footer() {
                         <li className='text-xl font-semibold'>For Blogs</li>
                         <p className='mt-3'>Subscribe for informative blogs about spices and recipes.</p>
                         <li className='mt-3 gap-2 hidden lg:flex'>
-                            <input type="text" placeholder='Enter email' className='rounded-md p-1 w-[8rem]' />
+                            <input type="text" placeholder='Enter email' className='rounded-md p-1 w-[8rem] bg-white' />
                             <button className='bg-yellow-500 text-white md:text-xl px-2 py-2 rounded-md'>Subscribe</button>
                         </li>
                         
                     </ul>
                 </div>
             </div>
-
             <hr className='mt-5 text-gray-800' />
             <p className='text-center text-white mt-2'>All rights Reserved</p>
         </div>

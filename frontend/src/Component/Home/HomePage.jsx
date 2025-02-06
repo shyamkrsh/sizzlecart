@@ -5,7 +5,7 @@ import BestProducts from './BestProducts'
 import GetDeal from './GetDeal'
 import Blogs from './Blogs'
 import Search from './Search'
-import Location from './Location'
+import Footer from '../Footer.jsx'
 import SelectCategory from './SelectCategory'
 
 function HomePage() {
@@ -13,12 +13,13 @@ function HomePage() {
     <>
       <div className='bg-cyan-100'>
         <Search />
-        <SelectCategory/>
+        <SelectCategory />
         <Intro />
         <TrendingProducts />
         <BestProducts />
         <GetDeal />
         <Blogs />
+        <Footer />
       </div>
     </>
   )

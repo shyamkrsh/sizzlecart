@@ -4,7 +4,13 @@ import axios from 'axios'
 
 function CartProductInfo() {
 
+    
     const [products, setProducts] = useState(null);
+    let totalPrice = 0;
+    products?.forEach((item, index) => {
+        totalPrice += item?.price;
+    })
+
     if (!localStorage.getItem('products')) {
         localStorage.setItem('products', JSON.stringify([]));
     }
@@ -35,7 +41,7 @@ function CartProductInfo() {
             </div>
             <div>
                 <div className='w-[100%] h-[4rem] md:flex justify-between items-center px-10 bg-white mb-5 -mt-5 hidden '>
-                    <h2 className='text-2xl font-semibold'>₹ 5099</h2>
+                    <h2 className='text-2xl font-semibold'>₹ {totalPrice}</h2>
                     <button className='text-white px-12 py-3 font-semibold' style={{ backgroundColor: '#fb641b' }}>PLACE ORDER</button>
                 </div>
             </div>
