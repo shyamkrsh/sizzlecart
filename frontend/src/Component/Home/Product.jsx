@@ -2,27 +2,22 @@ import React from 'react'
 import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
-function Product({ pId, image, title, price, offers, weight, deliveryBy }) {
-
+function Product({ productId, image, title, price, offers, weight, deliveryBy }) {
+    console.log(productId)
     const navigate = useNavigate();
     if (!localStorage.getItem('products')) {
         localStorage.setItem('products', JSON.stringify([]));
     }
-    const addItem = (newImage, newTitle, newPrice, newOffers, newDeliveryBy, newWeight) => {
+    const addItem = (pId) => {
         let prevItem = JSON.parse(localStorage.getItem('products')) || [];
         let item = {
-            image: newImage,
-            title: newTitle,
-            price: newPrice,
-            offers: newOffers,
-            deliveryBy: newDeliveryBy,
-            weight: newWeight,
+            product_id: productId,
         };
         prevItem.push(item);
         localStorage.setItem('products', JSON.stringify(prevItem));
     }
     return (
-        <div className='w-[10rem] h-[15rem] cursor-pointer text-center m-1 overflow-hidden rounded-md shadow-lg bg-white' onClick={() => navigate(`/show-product/${pId}`)}>
+        <div className='w-[10rem] h-[15rem] cursor-pointer text-center m-1 overflow-hidden rounded-md shadow-lg bg-white' onClick={() => navigate(`/show-product/${productId}`)}>
             <div className='w-100 h-[60%]'>
                 <img src={image} alt="" className='w-[100%] h-[100%]' />
             </div>

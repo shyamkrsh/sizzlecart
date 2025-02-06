@@ -9,7 +9,6 @@ function TrendingProducts() {
             setProducts(res?.data);
         })
     }, [])
-
     return (
         <div className='pt-1 w-[100%] h-[20rem] px-[3%] '>
             <h1 className='text-2xl md:text-4xl ps-4 md:ps-0 md:text-center font-semibold text-slate-900'>Trending Products</h1>
@@ -17,7 +16,7 @@ function TrendingProducts() {
                 {
                     products?.map((product, index) => (
                         <div>
-                            <Product key={index} pId={product?._id} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28 | ₹40Free"} />
+                            <Product key={index} productId={product?._id} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28 | ₹40Free"} />
                         </div>
                     ))
                 }

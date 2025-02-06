@@ -120,7 +120,7 @@ function Navbar() {
             <div className='z-50 flex w-[100%] h-14 justify-between items-center px-5'>
                 <div className='flex items-center gap-2'>
                     <div className=''>
-                        <FiMenu onClick={toggleDrawer(true)} className='text-2xl hover:text-cyan-500 cursor-pointer' />
+                        <FiMenu onClick={toggleDrawer(true)} className='text-2xl text-black hover:text-cyan-500 cursor-pointer' />
                         <Drawer open={open} onClose={toggleDrawer(false)}>
                             {DrawerList}
                         </Drawer>
@@ -139,12 +139,12 @@ function Navbar() {
                             <li className=''>
                                 <Link to={"/cartPage"}>
                                     <Badge badgeContent={products} color="error" >
-                                        <BsCart3 className='text-2xl hover:text-cyan-500 cursor-pointer' />
+                                        <BsCart3 className='text-2xl text-black hover:text-cyan-500 cursor-pointer' />
                                     </Badge>
                                 </Link>
                             </li>
                             <li className=''>
-                                <LiaUserCircle className='text-3xl hover:text-cyan-500 cursor-pointer' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
+                                <LiaUserCircle className='text-3xl text-black hover:text-cyan-500 cursor-pointer' onClick={user?._id ? () => navigate('/profilePage') : handleClickOpen} />
                             </li>
                             <React.Fragment>
                                 <Dialog

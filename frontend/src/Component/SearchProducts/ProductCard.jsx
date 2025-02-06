@@ -5,23 +5,7 @@ import { BsFillStarFill } from "react-icons/bs";
 
 function ProductCard({ pId, image, title, price, offers, weight, deliveryBy }) {
 
-    const navigate = useNavigate();
-    if (!localStorage.getItem('products')) {
-        localStorage.setItem('products', JSON.stringify([]));
-    }
-    const addItem = (newImage, newTitle, newPrice, newOffers, newDeliveryBy, newWeight) => {
-        let prevItem = JSON.parse(localStorage.getItem('products')) || [];
-        let item = {
-            image: newImage,
-            title: newTitle,
-            price: newPrice,
-            offers: newOffers,
-            deliveryBy: newDeliveryBy,
-            weight: newWeight,
-        };
-        prevItem.push(item);
-        localStorage.setItem('products', JSON.stringify(prevItem));
-    }
+ 
     return (
         <div className='w-[100%] h-[20rem] cursor-pointer text-center overflow-hidden bg-white rounded-md shadow-md' onClick={() => navigate(`/show-product/${pId}`)}>
             <div className='w-100 h-[55%]'>

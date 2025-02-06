@@ -4,11 +4,9 @@ import { CiCircleMinus } from "react-icons/ci";
 
 function ProductInfo({ image, title, price, offers, deliveryBy }) {
 
-    
-
 
     return (
-        <div className='bg-white flex flex-col  my-2 px-10 py-2'>
+        <div className='bg-white flex flex-col  my-2 px-10 py-2 text-black'>
             <div className='flex justify-between '>
                 <div className='w-[7rem] h-[7rem] md:w-[8rem] md:h-[8rem]'>
                     <img src={image} alt="" className='w-[100%] h-[100%]' />
