@@ -22,6 +22,18 @@ function ShowProductPage() {
   const [productsCount, setProductsCount] = useState(0);
   const [wish, setWish] = useState(false);
 
+  if (!localStorage.getItem('products')) {
+    localStorage.setItem('products', JSON.stringify([]));
+  }
+  const addItem = (pId) => {
+    let prevItem = JSON.parse(localStorage.getItem('products')) || [];
+    let item = {
+      product_id: pId,
+    };
+    prevItem.push(item);
+    localStorage.setItem('products', JSON.stringify(prevItem));
+  }
+
   useEffect(() => {
     setInterval(() => {
       const products = JSON.parse(localStorage.getItem('products'));
@@ -133,7 +145,7 @@ function ShowProductPage() {
 
       {/* Buy button or add to cart button */}
       <div className='w-[100%] h-[3.5rem]  fixed bottom-0 bg-yellow-700 flex justify-between' style={{ boxShadow: '1px 0px 8px gray' }}>
-        <div className='w-[50%] bg-white grid place-content-center '><p className='font-semibold'>Add to cart</p></div>
+        <div className='w-[50%] bg-white grid place-content-center ' onClick={(e) => { e.stopPropagation(), addItem(id) }}><p className='font-semibold'>Add to cart</p></div>
         <div className='w-[50%] bg-yellow-500 grid place-content-center'><p className='font-semibold'>But now</p></div>
       </div>
 

@@ -10,7 +10,7 @@ function Product({ productId, image, title, price, offers, weight, deliveryBy })
     const addItem = (pId) => {
         let prevItem = JSON.parse(localStorage.getItem('products')) || [];
         let item = {
-            product_id: productId,
+            product_id: pId,
         };
         prevItem.push(item);
         localStorage.setItem('products', JSON.stringify(prevItem));
@@ -23,7 +23,7 @@ function Product({ productId, image, title, price, offers, weight, deliveryBy })
             <div className='w-100 h-[40%] flex flex-col'>
                 <p className='mt-1 font-semibold text-black '>{title}</p>
                 <p className='text-red-500 font-semibold'>₹ {price} / {weight}</p>
-                <button className='flex justify-center items-center gap-3 bg-black text-white w-[90%] mx-auto px-2 py-1 rounded-md text-sm' onClick={(e) => { e.stopPropagation(), addItem(image, title, price, offers, deliveryBy, weight) }}><FaShoppingCart /> ADD TO CART</button>
+                <button className='flex justify-center items-center gap-3 bg-black text-white w-[90%] mx-auto px-2 py-1 rounded-md text-sm' onClick={(e) => { e.stopPropagation(), addItem(productId) }}><FaShoppingCart /> ADD TO CART</button>
             </div>
         </div>
     )
