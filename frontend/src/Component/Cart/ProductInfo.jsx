@@ -24,7 +24,7 @@ function ProductInfo({productId, image, title, price, offers, deliveryBy }) {
                     <p className='mb-5'>Weight : 5 Kg.</p>
                     <p className='flex'>
                         <p>₹ {price} &nbsp;&nbsp;&nbsp; </p>
-                        <p className='text-green-700 text-xl font-semibold'>{offers}</p>
+                        <p className='text-green-700 text-xl font-semibold'>{offers + " % OFF"} </p>
                     </p>
                 </div>
                 <div className='hidden md:block'>{deliveryBy}</div>

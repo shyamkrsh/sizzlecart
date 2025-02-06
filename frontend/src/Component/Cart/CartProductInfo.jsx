@@ -18,7 +18,7 @@ function CartProductInfo() {
     }, [])
 
     return (
-        <div className='w-[100%] md:w-[55%]  border '>
+        <div className='w-[100%] md:w-[55%]  border text-black'>
             <div className="location w-[100%] h-[4rem] bg-white hidden md:flex justify-between px-5 md:px-10 items-center shadow-sm">
                 <p>From Saved Addresses</p>
                 <button className='text-blue-700 p-1 md:py-2 md:px-3 font-semibold border rounded-md'>Delivery Pin Code</button>

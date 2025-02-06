@@ -2,7 +2,7 @@ import React from 'react'
 
 function CartPriceInfo() {
   return (
-    <div className='w-[100%] md:w-[30%] h-[22rem] bg-white border-slate-800'>
+    <div className='w-[100%] md:w-[30%] h-[22rem] bg-white border-slate-800 text-black'>
       <div className='w-[100%] p-3 border-b-2 border-gray-400'>
         <h2 className='text-slate-500 font-semibold'>PRICE DETAILS</h2>
       </div>
