@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import ProductInfo from './ProductInfo'
+import axios from 'axios'
 
 function CartProductInfo() {
 
     const [products, setProducts] = useState(null);
-
+    if (!localStorage.getItem('products')) {
+        localStorage.setItem('products', JSON.stringify([]));
+    }
+    let item = JSON.parse(localStorage.getItem('products'));
     useState(() => {
-        let item = JSON.parse(localStorage.getItem('products'));
-        setProducts(item);
-    })
-
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/products/get-carts`, {
+            data : item
+        }).then((res) => {
+            setProducts(res.data.data);
+        })
+    }, [])
 
     return (
         <div className='w-[100%] md:w-[55%]  border '>
@@ -17,11 +23,11 @@ function CartProductInfo() {
                 <p>From Saved Addresses</p>
                 <button className='text-blue-700 p-1 md:py-2 md:px-3 font-semibold border rounded-md'>Delivery Pin Code</button>
             </div>
-            
+
             <div className='pt-3'>
                 {
                     products?.map((item, index) => (
-                        <ProductInfo key={index} image={item.image} title={item.title} price={item.price} offers={item.offers} deliveryBy={item.deliveryBy} />
+                        <ProductInfo key={index} image={item.thumbnail} title={item.name} price={item.price} offers={item.discount} deliveryBy={"Today"} />
                     ))
                 }
 

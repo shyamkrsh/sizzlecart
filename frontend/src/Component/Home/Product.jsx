@@ -3,7 +3,6 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
 function Product({ productId, image, title, price, offers, weight, deliveryBy }) {
-    console.log(productId)
     const navigate = useNavigate();
     if (!localStorage.getItem('products')) {
         localStorage.setItem('products', JSON.stringify([]));
