@@ -27,7 +27,7 @@ function Product({ pId, image, title, price, offers, weight, deliveryBy }) {
                 <img src={image} alt="" className='w-[100%] h-[100%]' />
             </div>
             <div className='w-100 h-[40%] flex flex-col'>
-                <p className='mt-1 font-semibold '>{title}</p>
+                <p className='mt-1 font-semibold text-black '>{title}</p>
                 <p className='text-red-500 font-semibold'>₹ {price} / {weight}</p>
                 <button className='flex justify-center items-center gap-3 bg-black text-white w-[90%] mx-auto px-2 py-1 rounded-md text-sm' onClick={(e) => { e.stopPropagation(), addItem(image, title, price, offers, deliveryBy, weight) }}><FaShoppingCart /> ADD TO CART</button>
             </div>

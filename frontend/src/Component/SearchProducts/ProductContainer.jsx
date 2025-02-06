@@ -3,19 +3,20 @@ import axios from 'axios'
 import Product from '../Home/Product'
 import ProductCard from './ProductCard';
 
-function ProductContainer({ value }) {
+function ProductContainer({ value , setSearch}) {
 
     const [products, setProducts] = React.useState([]);
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/all`).then((res) => {
+            setSearch(false);
             setProducts(res.data);
         })
     }, [])
 
 
     return (
-        <div className='w-{100%} py-10'>
+        <div className='w-{100%} py-10 bg-cyan-100 '>
             <div className='card-container w-[100%] px-[3%] md:px-[10%] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5 mt-12 place-items-center'>
                 {
                     products?.map((product, index) => (

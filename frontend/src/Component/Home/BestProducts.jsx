@@ -13,7 +13,7 @@ function BestProducts() {
     return (
         <div className=' w-[100%] h-[20rem] px-[3%] '>
             <h1 className='text-2xl md:text-4xl ps-4 md:ps-0 md:text-center font-semibold text-slate-900'>Best Products</h1>
-            <div className='mt-1  flex items-center overflow-y-hidden overflow-x-scroll  w-[100%] h-[16rem] cards-container '>
+            <div className='mt-1  flex items-center overflow-y-hidden overflow-x-scroll  w-[100%] h-[16rem] cards-container md:justify-center'>
                 {
                     products?.map((product, index) => (
                         <div>

@@ -82,7 +82,6 @@ function ShowProductPage() {
       </div>
 
 
-
       <div className='w-[100%] flex items-center justify-center gap-3 mt-1'>
         <div className={showIndex == 0 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(0), setDisplayImage(product?.images[0]) }} >
           <img src={"https://i.ibb.co/k6dZwJr/img1.jpg"} alt="" className='w-[3rem] h-[3rem]' />

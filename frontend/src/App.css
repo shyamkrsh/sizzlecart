@@ -20,3 +20,6 @@ input[type=number]::-webkit-inner-spin-button,
 .category::-webkit-scrollbar{
   display: none;
 }
+body{
+  background-color: #CFFAFE;
+}
