@@ -27,14 +27,13 @@ function ProductInfo({ image, title, price, offers, deliveryBy }) {
                         <CiCircleMinus className='text-3xl font-semibold text-slate-500 cursor-pointer' />
                     </div>
                     <div>
-                        <input type="number" value={1} name='count' className='border w-[3rem] h-[2rem] font-semibold  text-center outline-none' />
+                        <input type="number" value={1} name='count' className='border w-[3rem] h-[2rem] font-semibold  text-center outline-none bg-white' />
                     </div>
                     <div>
                         <CiCirclePlus className='text-3xl font-semibold text-slate-500 cursor-pointer' />
                     </div>
                 </div>
                 <div className='flex gap-5 items-center'>
-                    <button className='text-x font-semibold hover:text-blue-800'>SAVE FOR LATER</button>
                     <button className='text-x font-semibold hover:text-blue-800'>REMOVE</button>
                 </div>
             </div>
