@@ -5,6 +5,7 @@ import { BsFillStarFill } from "react-icons/bs";
 
 function ProductCard({ pId, image, title, price, offers, weight, deliveryBy }) {
 
+    const navigate = useNavigate();
  
     return (
         <div className='w-[100%] h-[20rem] cursor-pointer text-center overflow-hidden bg-white rounded-md shadow-md' onClick={() => navigate(`/show-product/${pId}`)}>

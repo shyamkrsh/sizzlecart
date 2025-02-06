@@ -22,12 +22,18 @@ module.exports.getAllProducts = async (req, res) => {
 module.exports.getOneProduct = async (req, res) => {
     try {
         const { id } = req.params;
-        const product = await Product.findById(id)
-        if (!product) {
-            throw new Error("Product does not exists");
+        const results = await Promise.all([
+            Product.findById(id),
+            TrendingProduct.findById(id),
+            BestProduct.findById(id)
+        ]);
+        const allProducts = results.filter(product => product !== null);
+        if (allProducts.length === 0) {
+            throw new Error("Product not found in any collection");
         }
+        console.log(allProducts[0]);
         res.status(200).json({
-            data: product,
+            data: allProducts[0],
             success: true,
             error: false,
         })
@@ -44,7 +50,7 @@ module.exports.getOneProduct = async (req, res) => {
 module.exports.getCartProducts = async (req, res) => {
     const items = req.body.data;
     try {
-        const itemIds = items.map(item => item.product_id); 
+        const itemIds = items.map(item => item.product_id);
         const [products, trendingProducts, bestProducts] = await Promise.all([
             Product.find({ _id: { $in: itemIds } }),
             TrendingProduct.find({ _id: { $in: itemIds } }),
@@ -57,7 +63,7 @@ module.exports.getCartProducts = async (req, res) => {
             success: true,
             error: false,
         })
-    }catch(err){
+    } catch (err) {
         res.json({
             data: [],
             success: false,

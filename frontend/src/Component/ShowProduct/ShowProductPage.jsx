@@ -32,7 +32,7 @@ function ShowProductPage() {
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/${id}`).then((res) => {
       setProduct(res?.data?.data);
-      setDisplayImage(res?.data?.data?.images[0])
+      setDisplayImage(res?.data?.data?.thumbnail)
     }).catch((err) => {
       console.log(err);
     })
@@ -42,7 +42,7 @@ function ShowProductPage() {
   let style = `flex flex-col items-center cursor-pointer shadow-lg p-2 bg-white rounded-lg w-[4rem] h-[4rem]`
 
   return (
-    <div className='pb-20 bg-cyan-100'>
+    <div className='pb-20 bg-cyan-100 text-black'>
       <div className='flex items-center justify-between gap-5 w-full fixed top-0 left-0 z-50 bg-white h-[3.8rem] px-5 shadow-md'>
         <FaArrowLeftLong className='text-xl text-slate-900 cursor-pointer' onClick={() => window.history.back()} />
         <div className='flex gap-5 items-center'>
@@ -119,7 +119,7 @@ function ShowProductPage() {
       </div>
 
       <div className='review px-[5%] mt-10'>
-        <h1 className='text-xl font-semibold py-3'>Reviews & Ratings</h1>
+        <h1 className='text-xl font-semibold py-3 text-black'>Reviews & Ratings</h1>
         <div>
           <ReviewCard image={"https://i.ibb.co/Zm6qmB9/user.png"} username={"shashisharma"} ratings={4} content={"This very tasty spice i love it."} />
           <ReviewCard image={"https://i.ibb.co/Zm6qmB9/user.png"} username={"shashisharma"} ratings={4} content={"This very tasty spice i love it."} />

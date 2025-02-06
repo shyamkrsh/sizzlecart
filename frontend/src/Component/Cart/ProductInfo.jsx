@@ -2,8 +2,16 @@ import React from 'react'
 import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
 
-function ProductInfo({ image, title, price, offers, deliveryBy }) {
+function ProductInfo({productId, image, title, price, offers, deliveryBy }) {
 
+    const addItem = (pId) => {
+        let prevItem = JSON.parse(localStorage.getItem('products')) || [];
+        let item = {
+            product_id: productId,
+        };
+        prevItem.push(item);
+        localStorage.setItem('products', JSON.stringify(prevItem));
+    }
 
     return (
         <div className='bg-white flex flex-col  my-2 px-10 py-2 text-black'>

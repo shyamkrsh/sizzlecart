@@ -27,7 +27,8 @@ function CartProductInfo() {
             <div className='pt-3'>
                 {
                     products?.map((item, index) => (
-                        <ProductInfo key={index} image={item.thumbnail} title={item.name} price={item.price} offers={item.discount} deliveryBy={"Today"} />
+                        
+                        <ProductInfo key={index} productId={item?._id} image={item?.thumbnail} title={item?.name} price={item?.price} offers={item?.discount} deliveryBy={"Today"} />
                     ))
                 }
 

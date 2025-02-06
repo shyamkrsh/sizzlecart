@@ -22,7 +22,7 @@ function ProductContainer({ value , setSearch}) {
                     products?.map((product, index) => (
                         value === '' ? <ProductCard key={index} pId={product?._id} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28"} />
                             : product?.name?.toLowerCase().split(" ").some((word) => word?.includes(value?.toLowerCase().replaceAll(" ", "")))
-                                ? <ProductCard key={index} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28"} />
+                                ? <ProductCard key={index} pId={product?._id} image={product?.thumbnail} title={product?.name} price={product?.price} offers={"20% off"} weight={product?.weight} deliveryBy={"Delivery by Sat Dec 28"} />
                                 : ""
                     ))
                 }
