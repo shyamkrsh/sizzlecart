@@ -1,7 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './Component/Home/HomePage'
-import Footer from './Component/Footer'
 import Navbar from './Component/Navbar'
 import CartPage from './Component/Cart/CartPage'
 import ProfilePage from './Component/Profile/ProfilePage'
@@ -12,6 +11,9 @@ import { useEffect } from 'react'
 import Context from './Context/Context'
 import SearchProductsPage from './Component/SearchProducts/SearchProductsPage'
 import ShowProductPage from './Component/ShowProduct/ShowProductPage'
+import SettingPage from './Component/Setting/SettingPage'
+import NotificationPage from './Component/Notification/NotificationPage'
+import OrderPage from './Component/Order/OrderPage'
 
 
 
@@ -48,7 +50,10 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />}></Route>
             <Route path='/cartPage' element={<CartPage />}></Route>
+            <Route path='/settingPage' element={<SettingPage />}></Route>
+            <Route path='/notificationPage' element={<NotificationPage />}></Route>
             <Route path='/wishlistPage' element={<WishlistPage />}></Route>
+            <Route path='/orderPage' element={<OrderPage />}></Route>
             <Route path='/profilePage' element={<ProfilePage />}></Route>
             <Route path='/search-products' element={<SearchProductsPage />}></Route>
             <Route path='/show-product/:id' element={<ShowProductPage />}></Route>

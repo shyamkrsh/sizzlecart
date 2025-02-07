@@ -27,7 +27,7 @@ function Searchbar({ setValue, value }) {
             <FaArrowLeftLong className='text-xl text-slate-900 cursor-pointer' onClick={() => navigate("/")} />
             <input type="text" placeholder='Search for products...' className='bg-transparent text-slate-800 text-sm outline-none h-full w-[70%]' value={value} onChange={handleChange} style={{ fontSize: '1.2rem' }} />
             <div className='flex gap-5 items-center'>
-                <Badge badgeContent={productsCount} color="error" >
+                <Badge badgeContent={productsCount} color="error" onClick={() => navigate("/cartPage")}>
                     <BsCart3 className='text-2xl text-slate-600' />
                 </Badge>
                 <LiaUserCircle className='text-3xl text-slate-600 cursor-pointer' onClick={() => navigate("/user-profile")} />
