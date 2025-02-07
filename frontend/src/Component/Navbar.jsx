@@ -55,6 +55,7 @@ function Navbar() {
     const user = useSelector((state) => state?.user?.user);
 
     const handleLogout = () => {
+        console.log("working...")
         axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/user/logout`, {}, {
             withCredentials: true,
         }).then((res) => {

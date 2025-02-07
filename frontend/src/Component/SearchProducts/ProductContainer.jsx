@@ -16,7 +16,7 @@ function ProductContainer({ value , setSearch}) {
 
 
     return (
-        <div className='w-{100%} py-10 bg-cyan-100 ' style={{ minHeight: 'calc(100vh - 3.8rem)' }}>
+        <div className='w-{100%} py-10 bg-cyan-100 text-black' style={{ minHeight: 'calc(100vh - 3.8rem)' }}>
             <div className='card-container w-[100%] px-[3%] md:px-[10%] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5 mt-12 place-items-center'>
                 {
                     products?.map((product, index) => (
