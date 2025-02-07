@@ -15,7 +15,6 @@ module.exports.getBestProducts = async (req, res) => {
 
 module.exports.getAllProducts = async (req, res) => {
     const products = await Product.find({});
-    console.log(products);
     res.status(200).json(products);
 }
 
@@ -31,7 +30,6 @@ module.exports.getOneProduct = async (req, res) => {
         if (allProducts.length === 0) {
             throw new Error("Product not found in any collection");
         }
-        console.log(allProducts[0]);
         res.status(200).json({
             data: allProducts[0],
             success: true,

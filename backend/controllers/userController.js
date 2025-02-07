@@ -50,32 +50,47 @@ module.exports.login = async (req, res) => {
     try {
         const { email, otp } = req.body;
         console.log(email, otp);
+
+        // Find user by email
         const user = await User.findOne({ email: email });
-        const isOtpValid = await bcrypt.compareSync(otp, user.otp);
-        if (isOtpValid == false) {
-            res.json({
+
+        // Check if user exists
+        if (!user) {
+            return res.json({
+                message: "User not found",
+                data: [],
+                success: false,
+                error: true,
+            });
+        }
+
+        // Compare OTP
+        const isOtpValid = await bcrypt.compare(otp, user.otp);
+        if (!isOtpValid) {
+            return res.json({
                 message: "Invalid OTP",
                 data: [],
                 success: false,
                 error: true,
             });
         }
-       
+
+        // Create token data
         const tokenData = {
             _id: user._id,
             email: user.email,
         };
-        const token = jwt.sign(tokenData, "mysecretstring", {
-            expiresIn: '7d'
-        });
+        const token = jwt.sign(tokenData, "mysecretstring", { expiresIn: "7d" });
 
-
+        // Set cookie options
         const tokenOptions = {
             httpOnly: true,
             secure: true, 
-            sameSite: 'None',
-            maxAge: '7d'      
+            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
         };
+
+
+     // Set cookie and send response
         res.cookie("token", token, tokenOptions);
         res.status(200).json({
             message: "Login successful",
@@ -85,14 +100,15 @@ module.exports.login = async (req, res) => {
         });
 
     } catch (err) {
-        res.json({
+        console.error(err); // Log the error for debugging
+        res.status(500).json({
             message: "Internal server error",
             data: [],
             success: false,
             error: true,
         });
     }
-}
+};
 
 module.exports.logout = async (req, res) => {
     try {

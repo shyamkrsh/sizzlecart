@@ -39,7 +39,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function Navbar() {
     const [products, setProducts] = useState(0);
     const navigate = useNavigate();
-
     const [address, setAddress] = useState('');
 
     useEffect(() => {
