@@ -170,8 +170,8 @@ function Navbar() {
                                         </Toolbar>
                                     </AppBar>
 
-                                    <form onSubmit={handleSubmit} className='bg-cyan-100 h-[100%]'>
-                                        <div className={showOtp ? 'hidden' : 'text-center mt-10 '}>
+                                    <form onSubmit={handleSubmit} className={showOtp ? "hidden" : 'bg-cyan-100 h-[100%]'}>
+                                        <div className='text-center mt-10 '>
                                             <p className='text-slate-500 mb-5'>Enter your phone number to Email</p>
                                             <div>
                                                 <TextField
@@ -196,7 +196,7 @@ function Navbar() {
                                             <button className='text-white shadow-md bg-amber-500 w-[10rem] py-1.5 hover:bg-amber-600 rounded-lg' type='submit'>Continue</button>
                                         </div>
                                     </form>
-                                    <div className={showOtp ? 'justify-center items-center' : 'hidden'}>
+                                    <div className={showOtp ? 'justify-center items-center h-[100%] bg-cyan-100' : 'hidden'}>
                                         <OtpInput email={mail} />
                                     </div>
                                 </Dialog>

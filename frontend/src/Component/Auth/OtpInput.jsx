@@ -36,7 +36,7 @@ const OtpInput = ({ length = 6, email }) => {
   };
   // Render the OTP fields
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="">
         <h1 className="text-xl font-semibold mt-12 text-center text-green-500">OTP Sent to your mobile</h1>
       <div className="flex  flex-col items-center justify-start mt-4 ">
         <Box display="flex" gap={1} width={"20rem"} >
