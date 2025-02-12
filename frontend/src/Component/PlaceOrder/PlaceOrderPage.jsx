@@ -11,7 +11,7 @@ function PlaceOrderPage() {
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/${id}`).then((res) => {
             setProduct(res?.data?.data);
-            setDisplayImage(res?.data?.data?.thumbnail)
+            
         }).catch((err) => {
             console.log(err);
         })
