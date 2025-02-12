@@ -14,6 +14,7 @@ import ShowProductPage from './Component/ShowProduct/ShowProductPage'
 import SettingPage from './Component/Setting/SettingPage'
 import NotificationPage from './Component/Notification/NotificationPage'
 import OrderPage from './Component/Order/OrderPage'
+import PlaceOrderPage from './Component/PlaceOrder/PlaceOrderPage'
 
 
 
@@ -56,6 +57,7 @@ function App() {
             <Route path='/profilePage' element={<ProfilePage />}></Route>
             <Route path='/search-products' element={<SearchProductsPage />}></Route>
             <Route path='/show-product/:id' element={<ShowProductPage />}></Route>
+            <Route path='/products/:id/buynow' element={<PlaceOrderPage />}></Route>
             
           </Routes>
           {/* <Footer /> */}
