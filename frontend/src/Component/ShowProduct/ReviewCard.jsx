@@ -3,11 +3,10 @@ import { BsFillStarFill } from "react-icons/bs";
 
 function ReviewCard({ image, username, ratings, content }) {
 
-
     return (
         <div className='my-2 py-2'>
             <div className='flex items-center justify-start gap-2 w-[100%]'>
-                <img src={image} className='w-[5%]' />
+                <img src={image} className='w-[2rem] md:w-[2.5rem]' />
                 <h1 className='text-slate-700' style={{fontSize: '15px'}}>{username}</h1>
             </div>
             <div className='mt-2'>

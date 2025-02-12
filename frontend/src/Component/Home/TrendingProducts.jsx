@@ -5,7 +5,9 @@ import Product from './Product';
 function TrendingProducts() {
     const [products, setProducts] = React.useState([]);
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/trending`).then((res) => {
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/trending`, {
+            withCredentials: true,
+        }).then((res) => {
             setProducts(res?.data);
         })
     }, [])

@@ -41,21 +41,21 @@ app.get("/demo", (req, res) => {
     res.send("Hello world");
 });
 
-const products = require("./data");
+// const products = require("./data");
 // const Product = require('./models/Product');
 
-app.get("/api/products", async(req, res) => {
+// app.get("/api/products", async(req, res) => {
     
-    for(let i = 0; i < products.length; i++){
-        let newProducts = new Product(products[i]);
-        await newProducts.save().then(() => {
-            console.log("saved");
-        }).catch((err) => {
-            console.log(err);
-        })
+//     for(let i = 0; i < products.length; i++){
+//         let newProducts = new Product(products[i]);
+//         await newProducts.save().then(() => {
+//             console.log("saved");
+//         }).catch((err) => {
+//             console.log(err);
+//         })
 
-    }
-})
+//     }
+// })
 
 
 

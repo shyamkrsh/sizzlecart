@@ -5,7 +5,9 @@ import axios from 'axios';
 function BestProducts() {
     const [products, setProducts] = React.useState([]);
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/best`).then((res) => {
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/best`, {
+            withCredentials: true,
+        }).then((res) => {
             setProducts(res?.data);
         })
     }, [])
