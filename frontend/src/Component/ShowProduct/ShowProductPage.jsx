@@ -154,8 +154,8 @@ function ShowProductPage() {
 
       {/* Buy button or add to cart button */}
       <div className='w-[100%] h-[3.5rem]  fixed bottom-0 bg-yellow-700 flex justify-between' style={{ boxShadow: '1px 0px 8px gray' }}>
-        <div className='w-[50%] bg-white grid place-content-center ' onClick={(e) => { e.stopPropagation(), addItem(id) }}><p className='font-semibold'>Add to cart</p></div>
-        <div className='w-[50%] bg-yellow-500 grid place-content-center'><p className='font-semibold' onClick={() => navigate(`/products/${id}/buynow`)}>But now</p></div>
+        <div className='w-[50%] bg-white grid place-content-center  cursor-pointer' onClick={(e) => { e.stopPropagation(), addItem(id) }}><p className='font-semibold'>Add to cart</p></div>
+        <div className='w-[50%] bg-yellow-500 grid place-content-center cursor-pointer'><p className='font-semibold' onClick={() => navigate(`/products/${id}/buynow`)}>But now</p></div>
       </div>
 
 
