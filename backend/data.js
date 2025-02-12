@@ -100,8 +100,8 @@ let products = [
       "finalPrice": 200,
       "isAvailable": true,
       "weight": "200g",
-      "images": ["https://example.com/images/garam1.jpg"],
-      "thumbnail": "https://example.com/images/garam1.jpg",
+      "images": ["https://i.ibb.co/k6dZwJr/img1.jpg", "https://i.ibb.co/vzGRT5b/img2.jpg"],
+      "thumbnail": "https://i.ibb.co/k6dZwJr/img1.jpg",
       "rating": 4.8,
       "reviews": [
         {
@@ -123,8 +123,8 @@ let products = [
       "finalPrice": 255,
       "isAvailable": true,
       "weight": "150g",
-      "images": ["https://example.com/images/pepper1.jpg", "https://example.com/images/pepper2.jpg"],
-      "thumbnail": "https://example.com/images/pepper1.jpg",
+      "images": ["https://i.ibb.co/k6dZwJr/img1.jpg", "https://i.ibb.co/vzGRT5b/img2.jpg"],
+      "thumbnail": "https://i.ibb.co/k6dZwJr/img1.jpg",
       "rating": 4.6,
       "reviews": [
         {
@@ -146,8 +146,8 @@ let products = [
       "finalPrice": 315,
       "isAvailable": true,
       "weight": "100g",
-      "images": ["https://example.com/images/clove1.jpg"],
-      "thumbnail": "https://example.com/images/clove1.jpg",
+      "images": ["https://i.ibb.co/k6dZwJr/img1.jpg", "https://i.ibb.co/k6dZwJr/img1.jpg"],
+      "thumbnail": "https://i.ibb.co/k6dZwJr/img1.jpg",
       "rating": 4.3,
       "reviews": [
         {
@@ -169,8 +169,8 @@ let products = [
       "finalPrice": 320,
       "isAvailable": false,
       "weight": "250g",
-      "images": ["https://example.com/images/cardamom1.jpg"],
-      "thumbnail": "https://example.com/images/cardamom1.jpg",
+      "images": ["https://i.ibb.co/k6dZwJr/img1.jpg", "https://i.ibb.co/k6dZwJr/img1.jpg"],
+      "thumbnail": "https://i.ibb.co/k6dZwJr/img1.jpg",
       "rating": 4.9,
       "reviews": [
         {
@@ -192,8 +192,8 @@ let products = [
       "finalPrice": 108,
       "isAvailable": true,
       "weight": "200g",
-      "images": ["https://example.com/images/fenugreek1.jpg"],
-      "thumbnail": "https://example.com/images/fenugreek1.jpg",
+      "images": ["https://i.ibb.co/k6dZwJr/img1.jpg", "https://i.ibb.co/k6dZwJr/img1.jpg"],
+      "thumbnail": "https://i.ibb.co/k6dZwJr/img1.jpg",
       "rating": 4.1,
       "reviews": [
         {
@@ -215,8 +215,8 @@ let products = [
       "finalPrice": 76,
       "isAvailable": true,
       "weight": "250g",
-      "images": ["https://example.com/images/mustard1.jpg"],
-      "thumbnail": "https://example.com/images/mustard1.jpg",
+      "images": ["https://i.ibb.co/k6dZwJr/img1.jpg", "https://i.ibb.co/k6dZwJr/img1.jpg"],
+      "thumbnail": "https://i.ibb.co/k6dZwJr/img1.jpg",
       "rating": 4.4,
       "reviews": [
         {

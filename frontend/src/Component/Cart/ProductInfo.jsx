@@ -15,9 +15,9 @@ function ProductInfo({productId, image, title, price, offers, deliveryBy }) {
     }
 
     return (
-        <div className='bg-white flex flex-col  my-2 px-10 py-2 text-black' onClick={() => navigate(`/show-product/${productId}`)}>
+        <div className='bg-white flex flex-col  my-2 px-10 py-1 text-black' onClick={() => navigate(`/show-product/${productId}`)}>
             <div className='flex justify-between '>
-                <div className='w-[7rem] h-[7rem] md:w-[8rem] md:h-[8rem]'>
+                <div className='w-[5rem] h-[5rem] md:w-[6rem] md:h-[6rem] pt-3'>
                     <img src={image} alt="" className='w-[100%] h-[100%]' />
                 </div>
                 <div>
@@ -31,7 +31,7 @@ function ProductInfo({productId, image, title, price, offers, deliveryBy }) {
                 <div className='hidden md:block'>{deliveryBy}</div>
             </div>
             <div className='flex justify-start gap-12 items-center'>
-                <div className='flex items-center py-5 gap-3' onClick={(e) => e.stopPropagation()}>
+                <div className='flex items-center py-2 gap-3' onClick={(e) => e.stopPropagation()}>
                     <div>
                         <CiCircleMinus className='text-3xl font-semibold text-slate-500 cursor-pointer' />
                     </div>

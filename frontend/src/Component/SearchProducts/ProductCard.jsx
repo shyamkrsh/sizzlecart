@@ -8,7 +8,7 @@ function ProductCard({ pId, image, title, price, offers, weight, deliveryBy }) {
     const navigate = useNavigate();
  
     return (
-        <div className='w-[100%] h-[20rem] cursor-pointer text-center overflow-hidden bg-white rounded-md shadow-md' onClick={() => navigate(`/show-product/${pId}`)}>
+        <div className='w-[100%] h-[22rem] cursor-pointer text-center overflow-hidden bg-white rounded-md shadow-md' onClick={() => navigate(`/show-product/${pId}`)}>
             <div className='w-100 h-[55%]'>
                 <img src={image} alt="" className='w-[100%] h-[100%]' />
             </div>

@@ -51,7 +51,7 @@ function ShowProductPage() {
   }, [])
 
 
-  let style = `flex flex-col items-center cursor-pointer shadow-lg p-2 bg-white rounded-lg w-[4rem] h-[4rem]`
+  let style = `flex flex-col items-center cursor-pointer shadow-lg p-1 bg-white rounded-lg w-[3.5rem] h-[3.5rem]`
 
   return (
     <div className='pb-20 bg-cyan-100 text-black'>
@@ -66,9 +66,9 @@ function ShowProductPage() {
         </div>
       </div>
 
-      <div className='w-[100%] px-3 flex items-center justify-start gap-2 border-b-2 py-1'>
-        <div className='w-[5rem] h-[5rem]'>
-          <img src={product?.thumbnail} className='w-[100%] h-[100%]' />
+      <div className='w-[100%] px-3 flex items-center justify-start gap-2 py-1'>
+        <div className='w-[3.5rem] h-[3.5rem]'>
+          <img src={product?.thumbnail} className='w-[100%] h-[100%] rounded-md' />
         </div>
         <div>
           <h1 className='text-xl text-slate-700 font-semibold'>{product?.name}</h1>
@@ -82,11 +82,11 @@ function ShowProductPage() {
           <img src={displayImage} className='w-[100%] h-[15rem] rounded-md ' />
           <div className='absolute top-1 right-1' onClick={(e) => e.stopPropagation()}>
             {
-              wish ? <div className='p-3 bg-slate-100 rounded-md cursor-pointer'> <GoHeart className='text-4xl ' onClick={() => setWish(!wish)} /></div>
-                : <div className='p-3 bg-slate-100 rounded-md cursor-pointer'><GoHeartFill className='text-4xl text-red-600' onClick={() => setWish(!wish)} /></div>
+              wish ? <div className='p-3  rounded-md cursor-pointer'> <GoHeart className='text-4xl ' onClick={() => setWish(!wish)} /></div>
+                : <div className='p-3  rounded-md cursor-pointer'><GoHeartFill className='text-4xl text-red-600' onClick={() => setWish(!wish)} /></div>
             }
 
-            <div className='p-3 bg-slate-100 rounded-md mt-1'>
+            <div className='p-3 rounded-md mt-1'>
               <PiShareFatThin className='text-4xl' />
             </div>
           </div>
@@ -97,45 +97,54 @@ function ShowProductPage() {
       {/* Change images on click */}
       <div className='w-[100%] flex items-center justify-center gap-3 mt-1'>
         <div className={showIndex == 0 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(0), setDisplayImage(product?.images[0]) }} >
-          <img src={"https://i.ibb.co/k6dZwJr/img1.jpg"} alt="" className='w-[3rem] h-[3rem]' />
+          <img src={"https://i.ibb.co/k6dZwJr/img1.jpg"} alt="" className='w-[3rem] h-[3rem] rounded-md' />
         </div>
         <div className={showIndex == 1 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(1), setDisplayImage(product?.images[1]) }}>
-          <img src={"https://i.ibb.co/vzGRT5b/img2.jpg"} alt="" className='w-[3rem] h-[3rem]' />
+          <img src={"https://i.ibb.co/vzGRT5b/img2.jpg"} alt="" className='w-[3rem] h-[3rem] rounded-md' />
         </div>
         <div className={showIndex == 2 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(2), setDisplayImage(product?.images[0]) }}>
-          <img src={"https://i.ibb.co/k6dZwJr/img1.jpg"} alt="" className='w-[3rem] h-[3rem]' />
+          <img src={"https://i.ibb.co/k6dZwJr/img1.jpg"} alt="" className='w-[3rem] h-[3rem] rounded-md' />
         </div>
         <div className={showIndex == 3 ? `${style} border-2 border-blue-300` : `${style}`} onClick={() => { setShowIndex(3), setDisplayImage(product?.images[1]) }}>
-          <img src={"https://i.ibb.co/vzGRT5b/img2.jpg"} alt="" className='w-[3rem] h-[3rem]' />
+          <img src={"https://i.ibb.co/vzGRT5b/img2.jpg"} alt="" className='w-[3rem] h-[3rem] rounded-md' />
         </div>
       </div>
 
       {/* product details */}
       <div>
-        <div className='w-100 h-[40%] flex flex-col gap-2 text-left ps-3 mt-5'>
+        <div className='w-100 h-[40%]  text-left ps-3 mt-5 relative'>
           <h2 className='mt-1 font-semibold' style={{ fontSize: '1.1rem' }}>{product?.name}</h2>
-          <p className='text-slate-500 text-sm -mt-2'>Pure quality guranteed</p>
-          <p className='text-slate-900 font-semibold -mt-2' style={{ fontSize: '1.2rem' }}>₹ {product?.price} / {product?.weight}</p>
-          <p className='text-green-700 font-semibold -mt-2' style={{ fontSize: '1.1rem' }}>{product?.offers}</p>
-          <p className='text-green-700 text-sm font-semibold -mt-2 flex items-center gap-0.5'>
+          <p className='text-sm  bg-green-600 text-white inline px-2 py-1 rounded-full ' style={{ fontWeight: '500' }}>Pure quality guranteed</p>
+          <p className='text-slate-900 font-semibold mt-1' style={{ fontSize: '1.2rem' }}>₹ {product?.price} / {product?.weight}</p>
+          <p className='text-green-700 font-semibold' style={{ fontSize: '1.1rem' }}>{product?.offers}</p>
+          <p className='text-green-700 text-xl font-semibold flex items-center gap-0.5 mt-1'>
             {Array.from({ length: product?.rating }, (_, index) => (
               <BsFillStarFill key={index} />
             ))
             }
+            &nbsp;&nbsp;&nbsp;
+            <span className='text-xl '>
+              {
+                product?.rating
+              }
+            </span>
           </p>
-          <p className='text-slate-900 text-sm -mt-1'>{product?.description}</p>
+          <p className='text-slate-900  mt-1'>{product?.description}</p>
+          <p className='text-green-700 mt-1' style={{ fontSize: '1rem', fontWeight: '500' }}>Delivery Fee only ₹ 10</p>
         </div>
       </div>
 
       {/* Delivery details */}
-      <div className='px-3 mt-3  border-slate-500 py-2' style={{ border: '1px solid gray' }}>
-        <p className='text-green-700 font-semibold'>Delivery by - <span className='text-black'>31 jan 2025</span></p>
+      <div className='px-3 mt-3 py-2 text-center shadow-md'>
+        <p className='text-green-700 font-semibold'>Delivery by - <span className='text-black'>Today</span></p>
         <p>Patna - 800013</p>
       </div>
 
       {/* Review & ratings */}
       <div className='review px-[5%] mt-10'>
-        <h1 className='text-xl font-semibold py-3 text-black'>Reviews & Ratings</h1>
+        <h1 className='text-xl font-semibold py-1 text-black'>Reviews & Ratings</h1>
+
+        <h1 className='text-5xl font-semibold py-1 text-slate-800 flex items-center gap-2'>{product?.rating} <BsFillStarFill className='text-green-700 text-2xl' /></h1>
         <div>
           <ReviewCard image={"https://i.ibb.co/Zm6qmB9/user.png"} username={"shashisharma"} ratings={4} content={"This very tasty spice i love it."} />
           <ReviewCard image={"https://i.ibb.co/Zm6qmB9/user.png"} username={"shashisharma"} ratings={4} content={"This very tasty spice i love it."} />

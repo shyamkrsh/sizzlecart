@@ -26,7 +26,6 @@ function App() {
       method: "GET",
       credentials: "include",
     })
-
     const dataApi = await dataResponse?.json();
     console.log("working... ", dataApi);
     if (dataApi) {

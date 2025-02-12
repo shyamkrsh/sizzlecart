@@ -36,7 +36,7 @@ function CartPriceInfo() {
           </div>
           <div>
             <p className='flex justify-between px-5 py-2'>
-              <p className=' text-slate-600' style={{ fontWeight: '600', fontSize: '1rem' }}>Price (2 items)</p>
+              <p className=' text-slate-600' style={{ fontWeight: '600', fontSize: '1rem' }}>Price ({products?.length} items)</p>
               <p className='  text-slate-600' style={{ fontWeight: '600', fontSize: '1rem' }}>₹ {totalPrice}</p>
             </p>
             <p className='flex justify-between px-5 py-2'>
