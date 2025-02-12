@@ -3,6 +3,7 @@ const TrendingProduct = require('../models/TrendingProduct');
 const BestProduct = require('../models/BestProduct');
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
+const Order = require("../models/Order");
 
 const razorpayInstance = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
@@ -129,10 +130,18 @@ module.exports.verifyPayment = async (req, res) => {
 
         const isAuthentic = expectedSign === razorpay_signature;
         if (isAuthentic) {
-           
+
+            const order = new Order({
+                user: req.userId,
+
+            })
+
+            
+
+           console.log("Input Data - ", inputData);
             res.status(201).json({
                 message: "New Application created",
-                data: product,
+                data: [],
                 error: false,
                 success: true,
             })
