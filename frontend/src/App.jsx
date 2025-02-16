@@ -25,12 +25,11 @@ function App() {
   const fetchUserDetails = async () => {
     const dataResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/user-details`, {
       method: "GET",
-      credentials: "include",
+      credentials: 'include',
     })
+
     const dataApi = await dataResponse?.json();
-    console.log("working... ", dataApi);
     if (dataApi) {
-      console.log(dataApi);
       dispatch(setUserDetails(dataApi?.data));
     }
   }
