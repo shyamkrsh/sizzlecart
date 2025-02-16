@@ -80,19 +80,18 @@ module.exports.login = async (req, res) => {
             _id: user._id,
             email: user.email,
         };
-        const token = jwt.sign(tokenData, "mysecretstring", { expiresIn: "7d" });
+        const token = jwt.sign(tokenData, "mysecretStringyoucantchanged", {
+            expiresIn: 7 * 24 * 60 * 60 * 1000, // 7 days
+        });
 
-        // Set cookie options
+
         const tokenOptions = {
             httpOnly: true,
-            secure: true, 
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
+            secure: true,
+            sameSite: "None"
         };
 
-
-     // Set cookie and send response
-        res.cookie("token", token, tokenOptions);
-        res.status(200).json({
+        res.cookie("token", token, tokenOptions).status(200).json({
             message: "Login successful",
             data: user,
             success: true,
