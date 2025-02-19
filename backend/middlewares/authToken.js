@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 
-
 async function authToken(req, res, next) {
     try {
+
         const token = req?.cookies?.token ;
         if (!token) {
             return res.json({
@@ -11,7 +11,7 @@ async function authToken(req, res, next) {
                 sucsess: false,
             })
         }
-        jwt.verify(token, 'mysecretstring', function (err, decoded) {
+        jwt.verify(token, 'mysecretStringyoucantchanged', function (err, decoded) {
             if(err){
                 console.log("Error auth", err);
             }
@@ -21,7 +21,7 @@ async function authToken(req, res, next) {
         });
 
     } catch (err) {
-        res.json({
+        res.status(400).json({
             message: err.message || err,
             data: [],
             error: true,

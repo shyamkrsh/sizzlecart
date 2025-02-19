@@ -16,8 +16,6 @@ import NotificationPage from './Component/Notification/NotificationPage'
 import OrderPage from './Component/Order/OrderPage'
 import PlaceOrderPage from './Component/PlaceOrder/PlaceOrderPage'
 
-
-
 function App() {
 
   const dispatch = useDispatch();
@@ -27,7 +25,8 @@ function App() {
       method: "GET",
       credentials: 'include',
     })
-
+    console.log(dataResponse);
+    
     const dataApi = await dataResponse?.json();
     if (dataApi) {
       dispatch(setUserDetails(dataApi?.data));

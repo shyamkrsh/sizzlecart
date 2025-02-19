@@ -48,34 +48,27 @@ module.exports.verifyOtp = async (req, res) => {
 
 module.exports.login = async (req, res) => {
     try {
-        const { email, otp } = req.body;
-        console.log(email, otp);
+        const { email, password } = req.body;
 
+        if (!email) {
+            throw new Error("Email is missing")
+        }
+        if (!password) {
+            throw new Error("Password is missing")
+        }
         // Find user by email
-        const user = await User.findOne({ email: email });
-
-        // Check if user exists
+        const user = await User.findOne({ email });
         if (!user) {
-            return res.json({
-                message: "User not found",
-                data: [],
-                success: false,
-                error: true,
-            });
+            throw new Error("User not registered")
         }
 
-        // Compare OTP
-        const isOtpValid = await bcrypt.compare(otp, user.otp);
-        if (!isOtpValid) {
-            return res.json({
-                message: "Invalid OTP",
-                data: [],
-                success: false,
-                error: true,
-            });
+        // Compare passwords
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            throw new Error("Icorrect Password");
         }
 
-        // Create token data
+        // Generate JWT token
         const tokenData = {
             _id: user._id,
             email: user.email,
@@ -99,12 +92,10 @@ module.exports.login = async (req, res) => {
         });
 
     } catch (err) {
-        console.error(err); // Log the error for debugging
-        res.status(500).json({
-            message: "Internal server error",
-            data: [],
-            success: false,
+        res.json({
+            message: err.message || err,
             error: true,
+            success: false,
         });
     }
 };

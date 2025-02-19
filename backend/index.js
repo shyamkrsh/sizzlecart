@@ -7,7 +7,6 @@ const PORT = 8080 || process.env.PORT;
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const Product = require("./models/Product")
-
 const userRouter = require('./routes/userRouter');
 const authToken = require('./middlewares/authToken');
 const userDetailsController = require('./controllers/userDetails');
