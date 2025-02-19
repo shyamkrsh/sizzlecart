@@ -39,9 +39,40 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function Navbar() {
     const [products, setProducts] = useState(0);
     const navigate = useNavigate();
-    const [address, setAddress] = useState('');
-
+    const [address, setAddress] = useState('Getting location');
+    const [error, setError] = useState(null);
     useEffect(() => {
+        if (!navigator.geolocation) {
+            setError("Geolocation is not supported by your browser.");
+            return;
+        }
+        setError(null);
+        setAddress("");
+
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const { latitude, longitude } = position.coords;
+                try {
+                    const response = await fetch(
+                        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+                    );
+                    const data = await response.json();
+                    if (data.display_name) {
+                        setAddress(data.address.city);
+                    } else {
+                        setError("Address not found");
+                    }
+                } catch (err) {
+                    setError("Failed to fetch address");
+                }
+            },
+            (error) => {
+                setError(error.message);
+
+            },
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+
         setInterval(() => {
             const products = JSON.parse(localStorage.getItem('products'));
             setProducts(products?.length);
@@ -129,8 +160,8 @@ function Navbar() {
                         <img src="https://i.ibb.co/5XnRZMpR/logo.png" alt="" className='w-[3.5rem] h-[2.5rem]' />
                     </div>
                     <div className='flex items-center gap-1'>
-                        <SlLocationPin className=''/>
-                        <p className='text-sm font-semibold font-sans text-slate-700'>Patna, bihar</p>
+                        <SlLocationPin className='' />
+                        <p className='text-sm font-semibold font-sans text-slate-700'>{address}</p>
                     </div>
                 </div>
                 <div>
@@ -152,7 +183,7 @@ function Navbar() {
                                     open={open2}
                                     onClose={handleClose}
                                     TransitionComponent={Transition}
-                                    
+
                                 >
                                     <AppBar sx={{ position: 'relative', backgroundColor: '#fff', boxShadow: '-2px 0px 5px gray' }}>
                                         <Toolbar>
