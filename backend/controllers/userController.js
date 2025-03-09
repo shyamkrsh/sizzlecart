@@ -48,12 +48,11 @@ module.exports.verifyOtp = async (req, res) => {
 
 module.exports.login = async (req, res) => {
     try {
-        const { email, password } = req.body;
-
+        const { email, otp } = req.body;
         if (!email) {
             throw new Error("Email is missing")
         }
-        if (!password) {
+        if (!otp) {
             throw new Error("Password is missing")
         }
         // Find user by email
@@ -63,7 +62,7 @@ module.exports.login = async (req, res) => {
         }
 
         // Compare passwords
-        const isPasswordValid = await bcrypt.compare(password, user.password);
+        const isPasswordValid = await bcrypt.compare(otp, user.otp);
         if (!isPasswordValid) {
             throw new Error("Icorrect Password");
         }
@@ -74,14 +73,12 @@ module.exports.login = async (req, res) => {
             email: user.email,
         };
         const token = jwt.sign(tokenData, "mysecretStringyoucantchanged", {
-            expiresIn: 7 * 24 * 60 * 60 * 1000, // 7 days
+            expiresIn: "7d", // 7 days
         });
-
 
         const tokenOptions = {
             httpOnly: true,
             secure: true,
-            sameSite: "None"
         };
 
         res.cookie("token", token, tokenOptions).status(200).json({
