@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 
 function PlaceOrderPage() {
     const { id } = useParams();
-
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({ name: '', phone: '', address: '' })
     const [product, setProduct] = useState({});
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/${id}`).then((res) => {
             setProduct(res?.data?.data);
-            
+
         }).catch((err) => {
             console.log(err);
         })
@@ -33,10 +33,12 @@ function PlaceOrderPage() {
         ).then((res) => {
             console.log(res?.data?.data);
             handlePaymentVerify(res?.data?.data)
+            setFormData({ name: '', phone: '', address: '' })
+            navigate("/");
         }).catch((err) => {
             console.log(err);
         })
-        setFormData({ name: '', phone: '', address: '' })
+
     }
 
     async function handlePaymentVerify(data) {

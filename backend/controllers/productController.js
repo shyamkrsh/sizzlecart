@@ -112,28 +112,30 @@ module.exports.createOrder = async (req, res) => {
 module.exports.verifyPayment = async (req, res) => {
     try {
         const { id } = req.params;
+        const { razorpay_order_id, razorpay_payment_id, razorpay_signature, inputData } = req.body;
         const results = await Promise.all([
             Product.findById(id),
             TrendingProduct.findById(id),
-            BestProduct.findById(id)
+            BestProduct.findById(id) 
         ])
         const products = results.filter(product => product != null);
         if (products.length === 0) {
             throw new Error("Product not found in any collection");
         }
-        
-        const { razorpay_order_id, razorpay_payment_id, razorpay_signature, inputData } = req.body;
         const sign = razorpay_order_id + "|" + razorpay_payment_id;
         const expectedSign = crypto.createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
             .update(sign.toString())
             .digest('hex');
-
         const isAuthentic = expectedSign === razorpay_signature;
         if (isAuthentic) {
 
+            
             const order = new Order({
                 user: req.userId,
-
+                items: {
+                    products : id,
+                    
+                }
             })
 
             

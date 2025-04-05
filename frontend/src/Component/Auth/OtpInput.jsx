@@ -31,8 +31,7 @@ const OtpInput = ({ length = 6, email }) => {
     e.preventDefault();
     const otpValue = otp.join("");
     axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/user/login`, {email: email, otp: otpValue }, {withCredentials: true}).then((res) => {
-      // location.href = "/";
-      console.log("Login Data -", res.data)
+      location.href = "/";
     })
   };
   // Render the OTP fields
