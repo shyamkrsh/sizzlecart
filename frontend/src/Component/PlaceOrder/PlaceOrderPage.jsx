@@ -44,7 +44,7 @@ function PlaceOrderPage() {
     async function handlePaymentVerify(data) {
         try {
             const options = {
-                key: import.meta.env.RAZORPAY_KEY_ID,
+                key: import.meta.env.VITE_API_RAZORPAY_KEY_ID,
                 amount: data.amount,
                 currency: "INR",
                 name: product?.name,
